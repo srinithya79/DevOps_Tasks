@@ -1,0 +1,12 @@
+Git pull, fetch, clone
+I want only the last 3 logs
+how to roll back from staging area
+how to roll back commit 
+tagging
+git stash
+
+Interview questions
+-------------------
+branching strategy
+git workflow
+git status vs diff

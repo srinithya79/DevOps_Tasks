@@ -1,0 +1,4 @@
+part 1
+1. Identify the recently set password parking path
+2. jenkins version identification through command line
+	vim config.xml
