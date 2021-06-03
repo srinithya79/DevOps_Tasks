@@ -2,3 +2,49 @@ part 1
 1. Identify the recently set password parking path
 2. jenkins version identification through command line
 	vim config.xml
+
+week 4
+
+https://tomcat.apache.org/download-70.cgi
+
+https://tomcat.apache.org/download-70.cgi
+https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/
+
+
+Assignment:
+1. What is the Security Policy using in Jenkins?
+User Management - Role-Based Strategy plug-ins
+
+2. How to view Jenkins Version?
+using Jenkins CLI
+
+3. How to restart Jenkins through Admin Console?
+http://public ip:<port number>/restart
+service jenkins stop
+service jenkins start
+
+4. What is the Major difference in working with GUI and CLI?
+
+5. Investigate "Declarative Pipeline"?
+
+6. Investigate and workout
+   - Parameterized Trigger job - plug -ins
+   - Extended Choice Parameterized  - plugins
+
+7. Deep drive the plug-ins those we didn't cover and have a clarity.
+
+
+Jenkins Task
+============
+Task 1 : Write the Jenkins pipeline code for Java &Php application
+Task 2 : Write the Jenkinsfile code to build a Java application with Maven with error handling
+Task 3 : Complete the following tasks:
+	1. Jenkins setup on linux
+	2. Setup app server with apache to deploy an app.
+	3. create three jobs on jenkins
+	4. Pull the code from git repo
+	5. Build the application
+	6. deploy an app on apache using ansible.
+	7. app deploy should work with single trigger hit(git pull job -> build app -> deploy on apache server)
+	8. job should get triggered on git push on git repo
+
