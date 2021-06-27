@@ -1,0 +1,14 @@
+https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg
+
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-ubuntu
+
+1. Install Ansible - ubuntu machine 
+2. Edit & Run the EC2.yaml file
+3. convert roles (jenkins.yaml, tomcat.yaml)
+4. Blockin file
+5. delegate-10
+6. local-action
+7. Modules in ansible
+
+
+

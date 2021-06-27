@@ -1,0 +1,98 @@
+Create Instances 
+1 Master other all instances as slaves
+Install python in Master machine by giving python installation commands in (user data) python will install in all the machines
+launch instance with peagent
+allow peagent checkbox in putty
+install ansible with the ansible documenation commands
+
+------after installation check weather the slaves machines installed properly or not with the following commands----
+
+ssh ubuntu@172.31.28.78
+
+---Go to root and modify the hosts file---
+
+ubuntu@ip-172-31-18-207:~$ sudo su -
+root@ip-172-31-18-207:~# cd /etc/ansible
+root@ip-172-31-18-207:/etc/ansible# ls -ltr
+total 28
+-rw-r--r-- 1 root root  1016 May 24 21:17 hosts
+-rw-r--r-- 1 root root 19985 May 24 21:17 ansible.cfg
+drwxr-xr-x 2 root root  4096 May 24 21:49 roles
+root@ip-172-31-18-207:/etc/ansible# vi hosts
+[dev]
+<ip.address>
+root@ip-172-31-18-207:/etc/ansible# exit
+logout
+--------------
+
+ubuntu@ip-172-31-18-207:~$ ansible -m ping all 
+
+
+-----adhoc installation for httpd----
+if found any mistakes while installing adhoc commands go to root and modify 
+
+ubuntu@ip-172-31-18-207:~$ sudo su -
+root@ip-172-31-18-207:~# cd v
+-su: cd: v: No such file or directory
+root@ip-172-31-18-207:~# cd  /var/lib/apt/lists/
+root@ip-172-31-18-207:/var/lib/apt/lists# ls
+lock                                                                                       
+partial  
+                       
+chmod 755 partial/ --->  
+root@ip-172-31-18-207:/var/lib/apt/lists# exit
+logout
+
+------ansible dev -m apt -a "name=httpd state=present"----------->adhoc installation command 
+
+
+---------do all the changes in master machine it will effect in slaves machine-----------
+create a new yaml file
+edit and run it for adhoc httpd server
+
+ansible-playbook httpd.yaml --syntax-check ----------> 
+
+
+ubuntu@ip-172-31-18-207:~$ vi httpd.yaml 
+
+ubuntu@ip-172-31-18-207:~$ ansible-playbook httpd.yaml  ----> after this run the slave ipadress in server it will work
+
+
+-----add new file(anyfile html, .py etc..,) copy the source and destination path and run it will work-----
+ubuntu@ip-172-31-18-207:~$ vi httpd.yaml
+ubuntu@ip-172-31-18-207:~$ pwd
+/home/ubuntu
+ubuntu@ip-172-31-18-207:~$ ansible all -m copy -a "src=/home/ubuntu/index.html dest=/var/www/html/"
+ansible all -m copy -a "src=/home/ubuntu/index.html dest=/var/www/html/" -b -------> -b means ?
+
+
+YELLOW - CHANGES
+GREEN - NO CHANGE
+RED - FAILED ERROR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

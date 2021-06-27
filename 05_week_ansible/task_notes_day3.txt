@@ -1,0 +1,32 @@
+--to create role in ansible use the command
+
+ansible-galaxy init apache
+
+--after this apache directory will be created
+
+ls
+ls -lrt
+
+--go to apache folder 
+cd apache
+ls
+
+--confused to see the files so installing the tool tree
+sudo yum install tree -y
+
+tree apache/ ----> it will show the folder structure
+
+check tasks,vars,handlers(main.yml)
+
+vi apache/tasks/main.yml
+
+source path will be in files no need to give the path
+
+Roles advantage ---> code re-use 
+
+apache converts as role
+
+ansible-playbook -i slaves.txt role.yml
+
+
+

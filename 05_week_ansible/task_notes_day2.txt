@@ -1,0 +1,33 @@
+3.configure Instance 
+#! /bin/bash
+sudo apt install python-pip -y
+
+----Launch Ec2 instance using Ansible Playbook:----
+
+
+code edit
+Manage IAM role(roles attach)
+install boto (sudo pip install boto)
+
+
+ansible-playbook ec2.yaml
+
+
+
+--------------------------------------------
+
+Ansible Automation | Launch EC2 Instance Using Ansible Playbook 
+
+yum install python python-pip python-setuptools*
+curl -O https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
+pip install boto  ------- aws authentiction 
+pip install boto3
+
+python --version
+pip --version
+
+----------------------------------
+
+
+
