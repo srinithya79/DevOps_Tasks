@@ -1,0 +1,29 @@
+- create domain name in godaddy
+- Creating certification manager in aws
+- create hosted zone in Route53
+- Copy the nameservers of R53 and edit them in Godaddy
+- In Certification manager give confirm and request and it will add CNAME in hosted zone
+- Create IAM role with EC2 administration access
+- Create 2 RDS for PROD and DR(initial database name is must):
+- Create subnet group first
+- Create 2 EC2 instance with IAM role(full access) and user data
+- Configure the application with DB details for both prod and DR
+- Copy that file and save in prod server as wp-config.php. Similarly in DR also
+- Run installation
+- Now create CLB for both Prod and DR
+- Now check if Certificate is issued
+- Now add A record of ELB for both prod and dr in R53
+- Now check the URL
+- Now change the ELB listeners to SSL for both Prod and DR
+- Now create a S3 buckets and include crontab in CLI to sync prod and dr
+
+
+--------------------------------------------
+
+we purchase domain from godaddy 
+after clicking the domain url it will hit the route53-->ELB--->EC2-->RDS
+
+
+
+---doubt---
+DNS validation ?

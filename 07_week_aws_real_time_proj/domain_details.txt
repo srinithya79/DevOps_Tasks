@@ -1,0 +1,23 @@
+ns-1839.awsdns-37.co.uk
+ns-485.awsdns-60.com
+ns-1194.awsdns-21.org
+ns-713.awsdns-25.net
+
+
+ns-1839.awsdns-37.co.uk. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400
+
+
+
+dns 
+dbprod.c0r70lu9aguy.us-east-2.rds.amazonaws.com   
+dbdr.c0r70lu9aguy.us-east-2.rds.amazonaws.com
+
+
+
+prod
+*/2 * * * * aws s3 sync --delete /var/www/html/wp-content/uploads s3://projjuly13
+*/2 * * * * aws s3 sync --delete /var/www/html/ s3://projectdrjuly13
+
+dr
+*/2 * * * *  aws s3 sync --delete  s3://projjuly13 /var/www/html/wp-content/uploads
+*/2 * * * *  aws s3 sync --delete  s3://projectdrjuly13 /var/www/html/
