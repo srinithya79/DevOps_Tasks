@@ -1,0 +1,60 @@
+
+1. why are you willing to change job
+2. what is cloud watch
+3. teraform
+4. what is git merge conflict
+5. : how to store multiple files in a single host : env variables
+6. what are advantages of docker
+7. what is node in kubernetes
+8. diff between kub and docker
+9. what is ingress network
+10. how to create a muliticontainer
+11. 
+12. how do we know if there is a git commit
+13. what is fork in git
+14. what is storage device in docker
+15. path of storage in docker
+16. 
+17. 
+18. 
+19. what is api service
+30. how to taint a node
+31. how to tolerate the node
+32. architecture of promethius
+33. 
+34. 
+35. types of exporter in promethius
+36. horizontal autoscaling
+
+Tools:-jenkins/git/docker, AWS cloud services:-S3,VPC,IAM .Autoscaling etc
+
+What is your role and responsibilities in the current organization?
+
+, and production architecture, Docker clusters,kubernetes pods, Git,Roles and playbooks
+
+
+
+
+
+
+- How do you secure secrets in Ansible?
+- Cost for ACM in AWS (trick question)?
+- Define Route53
+
+They asked me what is OOPS and that's it , I was selected.
+
+Describe the recent incidents at your workplace and how you handled it
+
+Tell me something about you?
+
+Q1. 
+Q2. what are the git commands
+Q3. 
+Q4. AWS services
+Q5. Shell script
+
+Q1. how do you configure ssl certification with tomcat
+Q2. explain dynamic inventory in ansible
+Q3. how do you delete last 30 days logs in tomcat by using shell script
+Q4. how you can identify which process cause your server got slow
+Q5. 

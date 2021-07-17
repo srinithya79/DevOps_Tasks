@@ -1,0 +1,86 @@
+-----Innominds--------
+https port number
+how jenkins runs
+experince in ansible and terraform 
+
+
+------TCS----
+VPC (Private, Public)
+Jenkins roles in ur office
+Jenkins file
+how store the docker in ec2, docker image container, docker list need to prepare
+terraform
+python libraries, yaml file code 
+how to find the particular thing in yaml file
+clound front certificate 
+cloud front usage, cloud front lambda, 
+NAT gateways in detail 
+daily activities in the organization
+IAM roles
+
+
+----PluginHive------
+Maven Lifecycle
+Daily roles and responsibilities
+how to pull the git code in jenkins
+AWS Lamda
+explain about the project flow (I explained about coding project flow)
+how to order one job to another
+jenkins start stop command in linux
+artifactory tool
+monitoring tool
+Explain cron job
+what all will be there in jenkins file(I explained pom.xml file)
+how splunk, other all tools integarte with jenkins
+where the secretkey will be in jenkins
+docker flow in project/jenkin
+git clone, 
+git commit, push diff
+klf/kerna tool somewat I forgt the name
+who will do the infrastructure setup/ architectutre
+
+
+
+--Capgemini---
+Jenkins Integration
+AWS services VPC
+Docker flow
+Jenkins Job roles and responsibilities
+Behavioural questions was there(team player or individual)
+any automation initiative in daily routine
+Ansible flow 
+
+
+----sumanth capgemini---
+Branching strategies
+Flow
+Git checkout, git clone
+Jenkins pipeline explanation
+Webhook
+Ansible roles structure
+Docker container, logs, add and copy difference, exec and run difference, docker compose
+Maven life cycle
+Terraform,
+softlink and hardlink difference
+cmd vs entry point difference
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

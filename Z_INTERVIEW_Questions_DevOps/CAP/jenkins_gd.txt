@@ -1,0 +1,19 @@
+- What does Devops mean to you?
+What is monitoring in the DevOps?
+
+CI/CD process
+
+what is continous integration
+
+how to automate test in jenkins
+what is a pipeline
+if a commit is done how does it reflect in jenkins
+git and jenkins integration
+logging integration with cluster
+Flow of Jenkins
+What is declarative pipeline in Jenkins?
+how to integrate Maven with jenkins
+explain Jenkis pipeline job
+what are the stages you regularly write in pipeline job in Jenkins
+
+
