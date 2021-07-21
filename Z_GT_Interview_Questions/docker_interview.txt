@@ -1,0 +1,163 @@
+1. Docker file we give expose and we give -p option while running docker. What is difference?
+Basically, you have three options:
+Neither specify EXPOSE nor -p
+Only specify EXPOSE
+Specify EXPOSE and -p
+
+1) If you specify neither EXPOSE nor -p, the service in the container will only be accessible from inside the container itself.
+
+2) If you EXPOSE a port, the service in the container is not accessible from outside Docker, but from inside other Docker containers. So this is good for inter-container communication.
+
+3) If you EXPOSE and -p a port, the service in the container is accessible from anywhere, even outside Docker.
+
+The reason why both are separated is IMHO because:
+
+choosing a host port depends on the host and hence does not belong to the Dockerfile (otherwise it would be depending on the host),
+and often it's enough if a service in a container is accessible from other containers.
+
+
+
+2. Docker container and VM - What is difference?
+- VMs & Docker – each comes with benefits and demerits. 
+- Under a VM environment, each workload needs a complete OS. 
+- But with a container environment, multiple workloads can run with 1 OS. The bigger the OS footprint, the more environment benefits from containers. With this, it brings further benefits like Reduced IT management resources, reduced size of snapshots, quicker spinning up apps, reduced & simplified security updates, less code to transfer, migrate and upload workloads.
+
+
+3. Why should I go for docker in my project
+Docker really allows you to build, test, and release images that can be deployed across multiple servers. Even if a new security patch is available, the process remains the same. You can apply the patch, test it, and release it to production. Additionally, Docker allows you to start and stop services, or apps rapidly, which is especially useful within the cloud environment.
+
+
+4. docker architecture
+The Docker architecture uses a client-server model and comprises of the Docker Client, Docker Host, Network and Storage components, and the Docker Registry/Hub
+
+5. docker kill, docker pause and docker stops
+Docker Kill - Kill one or more running containers
+docker pause - Pause all processes within one or more containers
+docker stop - Stop one or more running containers
+
+
+*******6. CMD and Entry point - What is difference*********
+- CMD. 
+Sets default parameters that can be overridden from the Docker Command Line Interface (CLI) when a container is running.
+- ENTRYPOINT. 
+Default parameters that cannot be overridden when Docker Containers run with CLI parameters.
+
+
+******7. What is difference between copy and add in docker file*********
+- COPY and ADD are both Dockerfile instructions that serve similar purposes. They let you copy files from a specific location into a Docker image.
+
+- COPY takes in a src and destination. It only lets you copy in a local or directory from your host (the machine-building the Docker image) into the Docker image itself.
+COPY <src> <dest>
+
+-ADD  lets you do that too, but it also supports 2 other sources. First, you can use a URL instead of a local file/directory. Secondly, you can extract tar from the source directory into the destination.
+ADD <src> <dest>
+
+In most cases if you’re using a URL, you’re downloading a zip file and are then using the RUN command to extract it. However, you might as well just use RUN with curl instead of ADD here so you chain everything into 1 RUN command to make a smaller Docker image.
+
+A valid use case for ADD is when you want to extract a local tar file into a specific directory in your Docker image. This is exactly what the Alpine image does with ADD rootfs.tar.gz /.
+
+If you’re copying in local files to your Docker image, always use COPY because it’s more explicit.
+
+
+8. Difference between ENV and ARG in docker file.
+- ENV is for future running containers. ARG for building your Docker image.
+
+- ENV is mainly meant to provide default values for your future environment variables. Running dockerized applications can access environment variables. It’s a great way to pass configuration values to your project.
+ENV JAVA_HOME=/opt/java
+ENV app_version=2.0
+ENV JAVA_HOME=${JAVA_HOME}
+
+- ARG values are not available after the image is built. A running container won’t have access to an ARG variable value. You can imagine the ARG and ENV as two overlapping rectangles:
+ARG JAVA_HOME=/opt/java
+ARG app_version=2.0
+
+
+
+9. What is difference between run and cmd
+- RUN. 
+Mainly used to build images and install applications and packages. Builds a new layer over an existing image by committing the results.
+
+- CMD. 
+Sets default parameters that can be overridden from the Docker Command Line Interface (CLI) when a container is running.
+
+
+10. Why should i go for docker volume
+Docker containers are used to run applications in an isolated environment. By default, all the changes inside the container are lost when the container stops. So, If we want to keep data between runs, Docker volumes and bind mounts can help. 
+
+
+11. How to share docker data in multiple containers
+we can share docker data by using docker volume.
+
+
+********12. Do you have experience in writing docker file?*******
+
+
+13. Where will you push your docker image
+Artifactory Nexus
+
+
+14. Docker attach
+Attach local standard input, output, and error streams to a running container
+- docker attach [OPTIONS] CONTAINER
+
+
+15. How will u push docker image in docker hub
+- docker push [OPTIONS] NAME[:TAG]
+Use docker image push to share your images to the Docker Hub registry or to a self-hosted one.
+
+
+16. How to add volumes to running container
+https://jpetazzo.github.io/2015/01/13/docker-mount-dynamic-volumes/
+
+
+17. Can I limit the file size/CPU ultization for a docker in my machine.
+Docker provides ways to control how much memory, or CPU a container can use, setting runtime configuration flags of the "docker run" command. 
+This section provides details on when you should set such limits and the possible implications of setting them.
+
+
+18. Docker network difference/advantage - host, bridge and none
+---------
+
+19. Best practices for writing docker file
+https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+Each instruction creates one layer:
+- FROM creates a layer from the ubuntu:18.04 Docker image.
+- COPY adds files from your Docker client’s current directory.
+- RUN builds your application with make.
+- CMD specifies what command to run within the container.
+
+
+20. How to communicate between 2 containers in different network.
+- For containers to communicate with other, they need to be part of the same “network”.
+- Docker creates a virtual network called bridge by default, and connects your containers to it.
+- In the network, containers are assigned an IP address, which they can use to address each other.
+- If you want more control (and you definitely do), you can create a user-defined bridge, which will give you the added benefit of hostnames for your containers too.
+
+21. what is docker link and its advantages
+Advertisements. Container Linking allows multiple containers to link with each other. It is a better option than exposing ports.
+
+- Network port mappings are not the only way Docker containers can connect to one another. 
+- Docker also has a linking system that allows you to link multiple containers together and send connection information from one to another. 
+- When containers are linked, information about a source container can be sent to a recipient container. 
+- This allows the recipient to see selected data describing aspects of the source container.
+
+
+22. docker link vs depends_on
+23. what is virtualisation
+24. what is microservices
+25. what is difference bw -v and mount 
+26. how to remove only stopped containers 
+27. what is docker swarm
+orchestration
+kubernetes
+dockerswarm
+mesos 
+28. difference between docker swarm vs kubernetes
+29 .what is the orchestration container
+30. what is kubernetes
+31. how to tune ur docker file
+32. Multi stage builds in docker
+33. how you will confirm there is no secuirty vulnerability if
+ur using public docker image
+34. how to monitor docker container
+35. how to restrict the container with cpu n memory range
