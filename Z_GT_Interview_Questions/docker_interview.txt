@@ -143,6 +143,8 @@ Advertisements. Container Linking allows multiple containers to link with each o
 
 
 22. docker link vs depends_on
+
+
 23. what is virtualisation
 24. what is microservices
 25. what is difference bw -v and mount 
