@@ -146,17 +146,57 @@ Advertisements. Container Linking allows multiple containers to link with each o
 
 
 23. what is virtualisation
+Docker is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers. 
+Containers are isolated from one another and bundle their own software, libraries and configuration files; they can communicate with each other through well-defined channels.
+
+
 24. what is microservices
+
+
 25. what is difference bw -v and mount 
-26. how to remove only stopped containers 
+Volumes are the best way to persist data in Docker. 
+Bind mounts may be stored anywhere on the host system
+
+26. how to remove only stopped containers
+docker container prune
+This will remove all stopped containers.
+ 
 27. what is docker swarm
+Docker swarm is a container orchestration tool, meaning that it allows the user to manage multiple containers deployed across multiple host machines. 
+One of the key benefits associated with the operation of a docker swarm is the high level of availability offered for applications.
+
 orchestration
 kubernetes
 dockerswarm
 mesos 
+
+
 28. difference between docker swarm vs kubernetes
+----Docker----
+- No Auto Scaling
+- Good community
+- Easy to start a cluster
+- Limited to the Docker API's capabilities
+- Does not have as much experience with production deployments at scale
+----Kubernetes----
+- Auto scaling
+- Great active community
+- Difficult a start a cluster
+- Can overcome constraints of Docker and Docker API
+- Deployed at scale more often among organizations
+
+
 29 .what is the orchestration container
+Container orchestration is the automation of much of the operational effort required to run containerized workloads and services. 
+This includes a wide range of things software teams need to manage a container's lifecycle, including provisioning, deployment, scaling (up and down), networking, load balancing and more.
+
 30. what is kubernetes
+Kubernetes is a cluster and container management tool. 
+It lets you deploy containers to clusters, meaning a network of virtual machines. 
+It works with different containers, not just Docker. 
+The basic idea of Kubernetes is to further abstract machines, storage, and networks away from their physical implementation.
+
+
 31. how to tune ur docker file
 32. Multi stage builds in docker
 33. how you will confirm there is no secuirty vulnerability if
