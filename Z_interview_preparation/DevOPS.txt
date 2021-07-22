@@ -1,5 +1,0 @@
-What is DevOps
-
-DevOps ia a Software Development approach which involves continous Development, Continous testing, Continous Integration, 
-Continuos Deployment and continous Monitoring throughout its development lifecycle.
-
