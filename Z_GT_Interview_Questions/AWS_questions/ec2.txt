@@ -1,21 +1,53 @@
-1. Instance types
+*******1. Instance types
 - Reserved, spot, dedicated, on demand
 - (or) General, computerised, storage, memory
 
-2. Lost pem file
+1. General-Purpose instances.
+2. Compute Optimized instances.
+3. Memory Optimized instances.
+4. Accelerated Computing instances.
+5. Storage Optimized instances
+
+
+********2. Lost pem file
+Accessing the EC2 instance even if you loose the pem file is rather easy.
+- First, create a new instance by creating new access file, call it 'helper' instance with same region and VPC as of the lost pem file instance.
+- Now stop the lost pem file instance. Remember not to terminate instance but to stop it.
+- Go to EBS volumes, select the root volume of the lost pem file instance and detach.
+- Now again select the detached volume and this time you have to attach this volume to helper instance which we created before. Since helper instance already has a root volume by default as /dev/sda1, the newly attached volume will be secondary(eg: /dev/sdf).
+
+- Login to your helper instance with its pem file.
+
+Execute below commands:
+# mount /dev/xvdf1 /mnt
+# cp /root/.ssh/authorized_keys /mnt/root/.ssh/
+# umount /mnt
+
+- Detach the secondary volume from helper instance.
+- Again attach the volume back to our recovery instance. Start the instance. Terminate the helper instance.
+- Use helper instance pem file to log into recovery instance.
 
 
 
-3. AMI vs Ec2
+********3. AMI vs Ec2  vs Snapshot
+AMI is (snapshot + machine/hardware metadata). EBS Volume is the underlying disk behind EC2. Snapshot is a point in time backup of specific volume while AMI is backup of the entire EC2 instance that might have multiple attached volumes, exactly like virtual machine.
+- EBS Snapshot very often represents a backup of specific EBS volume, it might be any volume (Root volume, data volume, etc.)
+- AMI (Amazon Machine Image) is a backup of Entire EC2 instance. For example, with proper configuration it's possible to create AMI which includes multiple EBS volumes.
+ 
+- EBS Snapshot is a just a data backup.
+- AMI is a representation of system state at specific time. You can also boot from it.
 
 
-4. AMI vs Snapshot
+********4. filesystem full
+https://aws.amazon.com/premiumsupport/knowledge-center/ebs-volume-size-increase/
+https://wszhan.github.io/2018/04/19/no-space-on-AWS-EC2.html
 
 
-5. filesystem full
+********5. Increase volume
+Expand the EBS root volume of EC2 Linux running on a current generation instance without detaching and reattaching the volume by using the Amazon EBS Elastic Volumes feature. 
+To expand the EBS root volume of EC2 Linux running on a previous generation instance, you must detach and then reattach the volume
 
-
-6. Increase volume
+https://delebakare.medium.com/how-to-increase-disk-size-for-an-ec2-instance-on-aws-b82181df6215
 
 
 

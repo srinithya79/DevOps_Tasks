@@ -1,15 +1,48 @@
-1. Storage class
+*******1. Storage class
+Amazon S3 offers a range of storage classes designed for different use cases. These include S3 Standard for general-purpose storage of frequently accessed data; S3 Intelligent-Tiering for data with unknown or changing access patterns; 
 
-2. purpose of using s3 in your project
+S3 Standard-Infrequent Access (S3 Standard-IA) and S3 One Zone-Infrequent Access (S3 One Zone-IA) for long-lived, but less frequently accessed data; and Amazon S3 Glacier (S3 Glacier) and Amazon S3 Glacier Deep Archive (S3 Glacier Deep Archive) for long-term archive and digital preservation. 
 
-3. How to do "cors" region replication
-
-
-4. Bucket copy
+If you have data residency requirements that can’t be met by an existing AWS Region, you can use the S3 Outposts storage class to store your S3 data on-premises. Amazon S3 also offers capabilities to manage your data throughout its lifecycle. Once an S3 Lifecycle policy is set, your data will automatically transfer to a different storage class without any changes to your application.  
 
 
-5. lifecycle policy
 
 
-6. bucket permission
+********2. purpose of using s3 in your project
+To used s3 to store dump files, logs of bigger size etc,.
+
+
+********3. How to do "cors" region replication
+Cross-Region Replication allows you to replicate data between distant AWSRegions to satisfy these requirements. 
+Minimize latency — If your customers are in two geographic locations, you can minimize latency in accessing objects by maintaining object copies in AWS Regions that are geographically closer to your users.
+
+
+
+********4. S3 Bucket copy
+Create a new S3 bucket.
+Install and configure the AWS Command Line Interface (AWS CLI).
+Copy the objects between the S3 buckets. ...
+Verify that the objects are copied.
+Update existing API calls to the target bucket name.
+
+
+*******5. lifecycle policy
+Amazon S3 lifecycle configuration rules, you can significantly reduce your storage costs by automatically transitioning data from one storage class to another or even automatically delete data after a period of time.
+- Store backup data initially in Amazon S3 Standard
+- After 30 days, transition to Amazon Standard IA
+- After 90 days, transition to Amazon Glacier
+- After 3 years, delete
+
+
+*******6. bucket permission
+--S3
+
+By default, all S3 buckets, objects and related sub resources are private.
+User is the AWS Account or the IAM user who access the resource.
+Bucket owner is the AWS account that created a bucket.
+Object owner is the AWS account that uploads the object to a bucket, not owned by the account.
+ 
+Access my S3 bucket
+ 
+S3 buckets are private and can be accessed only by users that are explicitly granted access. When using AWS, it's a best practice to restrict access to your resources to the people that absolutely need it.
 
