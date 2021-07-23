@@ -1,3 +1,20 @@
 Route table 
 Security group
 vpc infrastructre
+
+
+1. NGW vs IGW
+
+
+2. VPC Peering
+
+
+3. NAT Gateway vs NAT Instance
+
+
+4. NACL vs Security Group
+
+
+5. Configure Public & private Network
+
+

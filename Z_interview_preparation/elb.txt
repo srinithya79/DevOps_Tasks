@@ -1,0 +1,20 @@
+1. Diff b/w three load balancers ********
+
+
+2. how autoscaling works
+
+
+3. Autoscaling types
+Vertical 
+Horizontal(Instance Increases automatically)
+
+
+4. What Metrics have you used in your project
+
+
+
+5. AMI change --autoscaling
+
+
+
+6. Launch template vs Launch configuration

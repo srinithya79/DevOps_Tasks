@@ -65,6 +65,18 @@ softlink and hardlink difference
 cmd vs entry point difference
 
 
+---torinit---
+Autoscaling cpu utilisation limit
+Elastic Load balancers
+Jenkins php project setup
+jenkins flow
+RDS
+RDS replica
+RDS usage in a project setup
+SNS usage in a project
+ELB Metrics 
+
+
 
 
 

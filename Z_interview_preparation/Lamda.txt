@@ -1,0 +1,22 @@
+1. Why we are going to serverless
+
+
+
+2. serverless vs Ec2
+
+
+
+3. lambda purpose in your project
+
+
+4. lambda max timeout
+
+
+
+5. for what application you used in lambda
+
+
+
+6. how to schedule lambda
+
+

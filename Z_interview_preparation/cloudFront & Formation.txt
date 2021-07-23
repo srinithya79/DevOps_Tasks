@@ -1,0 +1,26 @@
+-------Cloud Front---------
+
+1. Edge Location
+
+
+2. Edge Location if I delete any file what will happen
+
+
+3. TTL Value
+
+
+4. purpose of cloudfront
+
+
+
+-------Cloud Formation--------- or Terraform
+
+1. Template
+
+
+2. Value
+
+
+3.Cloud Fromation
+
+

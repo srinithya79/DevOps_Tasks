@@ -1,0 +1,11 @@
+1. Purpose of Route53
+
+
+
+2. Record set in Route 53
+
+
+
+3. Policy of Route 53
+
+

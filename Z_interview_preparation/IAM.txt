@@ -1,0 +1,8 @@
+1. Route & Policy
+
+
+2. access to another account
+
+3. Inline policy
+
+

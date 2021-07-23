@@ -1,0 +1,12 @@
+1. Database backup --- snapshot
+
+
+2. High availability of database
+
+
+3. benefits of aurora
+
+
+4. how you will access the database
+
+

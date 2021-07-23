@@ -1,1 +1,22 @@
-Instance type 
+1. Instance types
+- Reserved, spot, dedicated, on demand
+- (or) General, computerised, storage, memory
+
+2. Lost pem file
+
+
+
+3. AMI vs Ec2
+
+
+4. AMI vs Snapshot
+
+
+5. filesystem full
+
+
+6. Increase volume
+
+
+
+

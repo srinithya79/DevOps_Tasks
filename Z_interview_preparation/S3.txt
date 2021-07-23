@@ -1,0 +1,15 @@
+1. Storage class
+
+2. purpose of using s3 in your project
+
+3. How to do "cors" region replication
+
+
+4. Bucket copy
+
+
+5. lifecycle policy
+
+
+6. bucket permission
+

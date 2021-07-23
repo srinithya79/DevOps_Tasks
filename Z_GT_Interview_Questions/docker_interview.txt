@@ -198,8 +198,37 @@ The basic idea of Kubernetes is to further abstract machines, storage, and netwo
 
 
 31. how to tune ur docker file
+
+
 32. Multi stage builds in docker
-33. how you will confirm there is no secuirty vulnerability if
-ur using public docker image
+With multi-stage builds, you use multiple FROM statements in your Dockerfile. Each FROM instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don’t want in the final image. To show how this works, let’s adapt the Dockerfile from the previous section to use multi-stage builds.
+
+Dockerfile:
+# syntax=docker/dockerfile:1
+FROM golang:1.16
+WORKDIR /go/src/github.com/alexellis/href-counter/
+RUN go get -d -v golang.org/x/net/html  
+COPY app.go ./
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
+
+FROM alpine:latest  
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY --from=0 /go/src/github.com/alexellis/href-counter/app ./
+CMD ["./app"]  
+You only need the single Dockerfile. You don’t need a separate build script, either. Just run docker build.
+
+$ docker build -t alexellis2/href-counter:latest.
+
+
+
+33. how you will confirm there is no secuirty vulnerability if your using public docker image
+
+
+
 34. how to monitor docker container
+
+
+
+
 35. how to restrict the container with cpu n memory range
