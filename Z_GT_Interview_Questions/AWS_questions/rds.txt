@@ -1,12 +1,53 @@
-1. Database backup --- snapshot
+*****1. Database backup 
+--- snapshot
 
 
-2. High availability of database
+******2. High availability of database
+RDS provides high availability using Multi-Availability Zone (Multi-AZ) deployments. This means RDS automatically provisions a synchronous replica of the database in a different availability zone. When the main database instance goes down, users are redirected transparently to the other availability zone.
+
+This provides two levels of redundancy:
+In case the active database fails, there is a standby replica ready to receive requests.
+In case of a disruption in the AZ your main database instance is running in, there is failover to another AZ.
+
+You can turn on this capability by specifying ‘Multi-AZ Deployment’ when creating an RDS database instance, either via the RDS Console or the Amazon CLI. Multi-AZ deployments are managed fully automatically, with no administrative intervention.
+
+Note that Multi-AZ deployment is not supported for read-only instances, and you should use read replicas to enable high availability for those instances.
+
+RDS provides the following capabilities per database type:
+For Oracle, PostgreSQL, MySQL, and MariaDB—high availability using Amazon Multi-AZ technology.
+For SQL Server—mirroring to another Availability Zone using Microsoft’s SQL Server Database Mirroring technology
 
 
-3. benefits of aurora
+
+*****3. benefits of aurora
+Amazon Aurora is a Relational Database that is designed to compatible with MySQL so that the existing applications can work without any hindrance. It provides the 5 times with the performance of MySQL on the same hardware.
+
+If the user is in need for more databases they can add the replica of it which has a limit of 15. The storage of Amazon Aurora can grow up to 64 TB. It also replicates the data to three availability zones and if the failure occurs it fixes them automatically.
+
+1. Scalability
+Autoscaling feature can be enabled. Whenever your storage needs are increasing, it will automatically increase your database size and decreases the size when there is a major decrease in need for storage space.
+
+2. Cost-Effective
+You only pay for the storage space, and processing power you use. There is no upfront costs and other costs. It is just simple monthly payments.
+
+3. Security
+You can isolate your network where your database is running using Amazon VPC.
+Usage of AWS Key management service to create encryption keys for protecting your data
+
+4. High Availability and Durability
+Replicas of your Aurora can be created in multiple Availability zones.
+It is a global database which can be distributed across multiple AWS regions which could reduce the local read/write speed.
+
+5. Migration Support
+You can use pg-dump and mysql dump commands to migrate your local database into Aurora
+
+6. Fully Managed
+Very easy to start with Aurora. You just have to start an instance with AWS RDS console or call a API in your code.
+Aurora provides monitoring using Amazon Cloudwatch for no additional cost.
+You do not need to worry about updating, upgrading, or provisioning. Everything is under Amazon’s control and they do all the software patching when required.
 
 
-4. how you will access the database
 
+*****4. how you will access the database
+Before you can connect to a DB instance, you must create the DB instance. For information, see Creating an Amazon RDS DB instance. After Amazon RDS provisions your DB instance, you can use any standard client application or utility for your DB engine to connect to the DB instance. In the connection string, you specify the DNS address from the DB instance endpoint as the host parameter, and specify the port number from the DB instance endpoint as the port parameter.
 

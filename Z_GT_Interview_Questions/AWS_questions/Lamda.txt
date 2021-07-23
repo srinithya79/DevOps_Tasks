@@ -1,5 +1,20 @@
 1. Why we are going to serverless
+https://stackify.com/aws-lambda-serverless/
 
+A serverless compute Environment to host and run your Application Code
+
+1.Only needs a Bug free working application code
+2.Service is payable only for to/fro compute time (number of hits & app connections
+3.Needs a Lambda Function which is invoked to run your application code
+
+Runtime
+Languages Supported by Lambda :
+C#/PowerShell
+Go
+Java
+Nod e .js
+Python
+Ruby
 
 
 2. serverless vs Ec2
@@ -10,13 +25,18 @@
 
 
 4. lambda max timeout
+15 minutes
+You can now configure your AWS Lambda functions to run up to 15 minutes per execution. Previously, the maximum execution time (timeout) for a Lambda function was 5 minutes.
 
 
 
 5. for what application you used in lambda
+using java
 
 
 
 6. how to schedule lambda
+https://blog.shikisoft.com/3-ways-to-schedule-aws-lambda-and-step-functions-state-machines/
+
 
 

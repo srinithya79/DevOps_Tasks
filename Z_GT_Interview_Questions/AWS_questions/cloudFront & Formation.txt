@@ -1,26 +1,47 @@
 -------Cloud Front---------
+Cloudfront is an AWS web service that provided businesses and application developers an easy and efficient way to distribute their content with low latency and high data transfer speeds. Cloudfront is content delivery network of AWS.
 
-1. Edge Location
+*****1. Edge Location
+Edge location is the place where the contents will be cached. When a user tries to access some content, the content will be searched in the edge location. If it is not available then the content will be made available from the origin location and a copy will be stored in the edge location.
 
-
-2. Edge Location if I delete any file what will happen
-
-
-3. TTL Value
+You can remove files from your origin that you no longer want to be included in your CloudFront distribution
 
 
-4. purpose of cloudfront
+
+*****2. Edge Location if I delete any file what will happen
+The request will search for the file in edge location. If not found, It will search the file in origin and serve the request and keep the cache in edge location.
+
+
+*****3. TTL Value
+Amazon CloudFront now lets you configure a Default TTL and a Maximum time-to-live (Max TTL) to specify how long CloudFront caches your objects in edge locations. These new settings enhance the control over cache duration that you already had with the Minimum TTL setting (Min TTL)
+
+
+
+*****4. purpose of cloudfront
 
 
 
 -------Cloud Formation--------- or Terraform
 
-1. Template
+******1. Template
+A template is a declaration of the AWS resources that make up a stack. The template is stored as a text file whose format complies with the JavaScript Object Notation (JSON) or YAML standard. ... In the template, you declare the AWS resources you want to create and configure.
+
+******2. Value
+You can pass multiple values for individual parameters in an AWS CloudFormation template in the following ways:
+
+Use AWS-specific parameter types to select values from a pre-populated list of existing AWS values from an AWS account
+Use CommaDelimitedList parameter types to specify your own values
+Resolution
+Use AWS-specific parameter types to select values from a pre-populated list of existing AWS values from an AWS account
+
+Important: AWS CloudFormation validates the input value that you select against existing values in your account.
+
+In the following sample AWS CloudFormation templates, the parameter with the SecurityGroups key specifies an AWS-specific parameter type that can accept multiple values for SecurityGroupIds.
 
 
-2. Value
+********3.Cloud Fromation
+AWS CloudFormation is a service that gives developers and businesses an easy way to create a collection of related AWS and third-party resources, and provision and manage them in an orderly and predictable fashion.
 
-
-3.Cloud Fromation
+The calls that CloudFormation makes are all declared by your template. For example, suppose you have a template that describes an EC2 instance with a t1.micro instance type. When you use that template to create a stack, CloudFormation calls the Amazon EC2 create instance API and specifies the instance type as t1.micro. 
 
 

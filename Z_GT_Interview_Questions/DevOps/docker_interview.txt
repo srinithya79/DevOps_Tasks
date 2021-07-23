@@ -1,13 +1,11 @@
-1. Docker file we give expose and we give -p option while running docker. What is difference?
+*****1. Docker file we give expose and we give -p option while running docker. What is difference?
 Basically, you have three options:
 Neither specify EXPOSE nor -p
 Only specify EXPOSE
 Specify EXPOSE and -p
 
 1) If you specify neither EXPOSE nor -p, the service in the container will only be accessible from inside the container itself.
-
 2) If you EXPOSE a port, the service in the container is not accessible from outside Docker, but from inside other Docker containers. So this is good for inter-container communication.
-
 3) If you EXPOSE and -p a port, the service in the container is accessible from anywhere, even outside Docker.
 
 The reason why both are separated is IMHO because:
@@ -17,20 +15,20 @@ and often it's enough if a service in a container is accessible from other conta
 
 
 
-2. Docker container and VM - What is difference?
+*****2. Docker container and VM - What is difference?
 - VMs & Docker – each comes with benefits and demerits. 
 - Under a VM environment, each workload needs a complete OS. 
 - But with a container environment, multiple workloads can run with 1 OS. The bigger the OS footprint, the more environment benefits from containers. With this, it brings further benefits like Reduced IT management resources, reduced size of snapshots, quicker spinning up apps, reduced & simplified security updates, less code to transfer, migrate and upload workloads.
 
 
-3. Why should I go for docker in my project
+*****3. Why should I go for docker in my project
 Docker really allows you to build, test, and release images that can be deployed across multiple servers. Even if a new security patch is available, the process remains the same. You can apply the patch, test it, and release it to production. Additionally, Docker allows you to start and stop services, or apps rapidly, which is especially useful within the cloud environment.
 
 
-4. docker architecture
+*****4. docker architecture
 The Docker architecture uses a client-server model and comprises of the Docker Client, Docker Host, Network and Storage components, and the Docker Registry/Hub
 
-5. docker kill, docker pause and docker stops
+*****5. docker kill, docker pause and docker stops
 Docker Kill - Kill one or more running containers
 docker pause - Pause all processes within one or more containers
 docker stop - Stop one or more running containers
@@ -59,7 +57,7 @@ A valid use case for ADD is when you want to extract a local tar file into a spe
 If you’re copying in local files to your Docker image, always use COPY because it’s more explicit.
 
 
-8. Difference between ENV and ARG in docker file.
+*****8. Difference between ENV and ARG in docker file.
 - ENV is for future running containers. ARG for building your Docker image.
 
 - ENV is mainly meant to provide default values for your future environment variables. Running dockerized applications can access environment variables. It’s a great way to pass configuration values to your project.
@@ -73,7 +71,7 @@ ARG app_version=2.0
 
 
 
-9. What is difference between run and cmd
+*****9. What is difference between run and cmd
 - RUN. 
 Mainly used to build images and install applications and packages. Builds a new layer over an existing image by committing the results.
 
@@ -81,44 +79,54 @@ Mainly used to build images and install applications and packages. Builds a new 
 Sets default parameters that can be overridden from the Docker Command Line Interface (CLI) when a container is running.
 
 
-10. Why should i go for docker volume
+*****10. Why should i go for docker volume
 Docker containers are used to run applications in an isolated environment. By default, all the changes inside the container are lost when the container stops. So, If we want to keep data between runs, Docker volumes and bind mounts can help. 
 
 
-11. How to share docker data in multiple containers
+*****11. How to share docker data in multiple containers
 we can share docker data by using docker volume.
 
 
 ********12. Do you have experience in writing docker file?*******
+yes
 
-
-13. Where will you push your docker image
+*****13. Where will you push your docker image
 Artifactory Nexus
 
 
-14. Docker attach
+*****14. Docker attach
 Attach local standard input, output, and error streams to a running container
 - docker attach [OPTIONS] CONTAINER
 
 
-15. How will u push docker image in docker hub
+*****15. How will u push docker image in docker hub
 - docker push [OPTIONS] NAME[:TAG]
 Use docker image push to share your images to the Docker Hub registry or to a self-hosted one.
 
 
-16. How to add volumes to running container
+*****16. How to add volumes to running container
 https://jpetazzo.github.io/2015/01/13/docker-mount-dynamic-volumes/
 
 
-17. Can I limit the file size/CPU ultization for a docker in my machine.
+*****17. Can I limit the file size/CPU ultization for a docker in my machine.
 Docker provides ways to control how much memory, or CPU a container can use, setting runtime configuration flags of the "docker run" command. 
 This section provides details on when you should set such limits and the possible implications of setting them.
 
 
-18. Docker network difference/advantage - host, bridge and none
+*****18. Docker network difference/advantage - host, bridge and none
+Docker by default supports 3 networks:
+
+1) None:
+This mode will not configure any IP for the container and doesn’t have any access to the external network as well as for other containers. It does have the loopback address and can be used for running batch jobs.
+
+2) Host
+In this mode container will share the host’s network stack and all interfaces from the host will be available to the container. The container’s host name will match the host name on the host system
+
+3) Bridge Mode
+It is the Docker default networking mode which will enable the connectivity to the other interfaces of the host machine as well as among containers
 ---------
 
-19. Best practices for writing docker file
+*****19. Best practices for writing docker file
 https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 Each instruction creates one layer:
 - FROM creates a layer from the ubuntu:18.04 Docker image.
@@ -127,41 +135,43 @@ Each instruction creates one layer:
 - CMD specifies what command to run within the container.
 
 
-20. How to communicate between 2 containers in different network.
+*****20. How to communicate between 2 containers in different network.
 - For containers to communicate with other, they need to be part of the same “network”.
 - Docker creates a virtual network called bridge by default, and connects your containers to it.
 - In the network, containers are assigned an IP address, which they can use to address each other.
 - If you want more control (and you definitely do), you can create a user-defined bridge, which will give you the added benefit of hostnames for your containers too.
 
-21. what is docker link and its advantages
+*****21. what is docker link and its advantages
 Advertisements. Container Linking allows multiple containers to link with each other. It is a better option than exposing ports.
-
 - Network port mappings are not the only way Docker containers can connect to one another. 
 - Docker also has a linking system that allows you to link multiple containers together and send connection information from one to another. 
 - When containers are linked, information about a source container can be sent to a recipient container. 
 - This allows the recipient to see selected data describing aspects of the source container.
 
 
-22. docker link vs depends_on
+*****22. docker link vs depends_on
+- When docker-compose executes V2 files, it will automatically build a network between all of the containers defined in the file, and every container will be immediately able to refer to the others just using the names defined in the docker-compose.yml file.
+- So we don’t need links anymore; links were used to start a network communication between our db container and our web-server container, but this is already done by docker-compose
 
 
-23. what is virtualisation
+*****23. what is virtualisation
 Docker is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers. 
 Containers are isolated from one another and bundle their own software, libraries and configuration files; they can communicate with each other through well-defined channels.
 
 
-24. what is microservices
+*****24. what is microservices
+Microservices - also known as the microservice architecture - is an architectural style that structures an application as a collection of services that are. Highly maintainable and testable. Loosely coupled. Independently deployable. Organized around business capabilities.
 
 
-25. what is difference bw -v and mount 
+*****25. what is difference bw -v and mount 
 Volumes are the best way to persist data in Docker. 
 Bind mounts may be stored anywhere on the host system
 
-26. how to remove only stopped containers
+*****26. how to remove only stopped containers
 docker container prune
 This will remove all stopped containers.
  
-27. what is docker swarm
+*****27. what is docker swarm
 Docker swarm is a container orchestration tool, meaning that it allows the user to manage multiple containers deployed across multiple host machines. 
 One of the key benefits associated with the operation of a docker swarm is the high level of availability offered for applications.
 
@@ -171,7 +181,7 @@ dockerswarm
 mesos 
 
 
-28. difference between docker swarm vs kubernetes
+*****28. difference between docker swarm vs kubernetes
 ----Docker----
 - No Auto Scaling
 - Good community
@@ -186,21 +196,21 @@ mesos
 - Deployed at scale more often among organizations
 
 
-29 .what is the orchestration container
+*****29 .what is the orchestration container
 Container orchestration is the automation of much of the operational effort required to run containerized workloads and services. 
 This includes a wide range of things software teams need to manage a container's lifecycle, including provisioning, deployment, scaling (up and down), networking, load balancing and more.
 
-30. what is kubernetes
+*****30. what is kubernetes
 Kubernetes is a cluster and container management tool. 
 It lets you deploy containers to clusters, meaning a network of virtual machines. 
 It works with different containers, not just Docker. 
 The basic idea of Kubernetes is to further abstract machines, storage, and networks away from their physical implementation.
 
 
-31. how to tune ur docker file
+*****31. how to tune ur docker file
 
 
-32. Multi stage builds in docker
+*****32. Multi stage builds in docker
 With multi-stage builds, you use multiple FROM statements in your Dockerfile. Each FROM instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don’t want in the final image. To show how this works, let’s adapt the Dockerfile from the previous section to use multi-stage builds.
 
 Dockerfile:
@@ -222,13 +232,51 @@ $ docker build -t alexellis2/href-counter:latest.
 
 
 
-33. how you will confirm there is no secuirty vulnerability if your using public docker image
+*****33. how you will confirm there is no secuirty vulnerability if your using public docker image.
+Mostly we use docker official images as base images. Which means its a safe image, Because docker will verify that image and then only it provides official image status.
+https://docs.docker.com/engine/scan/
 
 
 
-34. how to monitor docker container
+*****34. how to monitor docker container
+Prometheus, Grafana
+
+
+
+*****35. how to restrict the container with cpu n memory range
+---Limiting Memory
+To limit memory we use the memory flag when starting a container. For example, we used the following to limit our NGINX server to only 256 MB of RAM.
+
+docker run -d -p 8081:80 --memory="256m" nginx
+This sets a hard limit. That means that under no circumstances will the container be allowed to use more than 256 MB of RAM. Alternatively, we could set a soft limit. Soft limits ensure our container can still request additional memory after hitting its limit, preventing service outages.
+
+The flag to set a soft limit is memory-reservation. To set a soft limit of 256 MB or RAM we would run the following command.
+
+docker run -d -p 8081:80 --memory-reservation="256m" nginx
+
+
+---Limiting CPU
+https://phoenixnap.com/kb/docker-memory-and-cpu-limit
+Allowing one container to monopolize the processors in your Docker host could cause service outages, by starving your other services and containers. Limit how much CPU a container can use.
 
 
 
 
-35. how to restrict the container with cpu n memory range
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

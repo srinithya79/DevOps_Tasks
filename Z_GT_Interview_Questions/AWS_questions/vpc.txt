@@ -2,19 +2,70 @@ Route table
 Security group
 vpc infrastructre
 
+********1. NGW vs IGW
 
-1. NGW vs IGW
+--IGW
+An Internet Gateway is a logical connection between an Amazon VPC and the Internet. It is nota physical device. Only one can be associated with each VPC. It does not limit the bandwidth of Internet connectivity. (The only limitation on bandwidth is the size of the Amazon EC2 instance, and it applies to all traffic -- internal to the VPC and out to the Internet.)
+
+If a VPC does not have an Internet Gateway, then the resources in the VPC cannot be accessed from the Internet (unless the traffic flows via a corporate network and VPN/Direct Connect).
+
+A subnet is deemed to be a Public Subnet if it has a Route Table that directs traffic to the Internet Gateway.
+
+---NAT Gateway:
+
+A NAT Gateway enables a server(EC2 instance) in a private subnet (a subnet with no route to the Internet Gateway)
+
+to access the internet through a public subnet(a subnet with a route to the Internet Gateway)
+
+The flow is like this:
+
+EC2 instances in the private subnet route to the NAT Gateway which then in turn routes to the Internet Gateway and then on to the internet.
+
+At no time can traffic from the internet come to the EC2 instance in the private subnet unless the traffic was initially asked for by the EC2 instance in the private subnet. If the traffic was initiated by the EC2 instance then traffic will be allowed in both directions(from and to the EC2 instance)
+
+The NAT Gateway is located inside of the public subnet(a subnet with a route to the Internet Gateway)
+
+The NAT Gateway translates the private ip address (not globally unique) in the internal network(private subnet) into a public ip address (legal addresses)
 
 
-2. VPC Peering
+******2. VPC Peering
+VPC stands for Virtual Private Cloud. VPC allows you to easily customize your networking configuration. VPC is a network that is logically isolated from other network in the cloud. It allows you to have your own IP address range, subnets, internet gateways, NAT gateways and security groups.
+
+VPC peering connection allows you to connect 1 VPC with another VPC. Instances in these VPC behave as if they are in the same network.
 
 
-3. NAT Gateway vs NAT Instance
+******3. NAT Gateway vs NAT Instance
+NAT instance: A network address translation (NAT) instance is an Amazon Linux machine Image (AMI) that is designed to accept traffic from instances within a private subnet, translate the source IP address to the Public IP address of the NAT instance and forward the traffic to IWG.
+
+NAT Gateway: A NAT gateway is an Amazon managed resources that is designed to operate just like a NAT instance but it is simpler to manage and highly available within an availability Zone. To
+allow instance within a private subnet to access internet resources through the IGW via a NAT gateway.
 
 
-4. NACL vs Security Group
+******4. NACL vs Security Group
+----NACL 
+Can control access at the subnet level
+Can add rules for both “allow” and “deny”
+Rules are processed in order number when allowing traffic.
+Can assign upto 5 security groups.
+Stateless filtering
+
+----Security Group
+Can control the access at the instance level
+Can add rules for “allow” only
+Evaluates all rules before allowing the traffic
+Can assign unlimited number of security groups
+Statefull filtering
+
+*******5. Configure Public & private Network
+Sometimes you want to create a public facing service, but you want stricter control over the networking of the service. This pattern is suitable for many of the same use cases of the public facing service, but it is especially used in the following cases:
+
+A service which is public facing but needs an extra layer of security hardening by not even having a public IP address that an attacker could send a request directly to.
+A service which needs to be massively horizontally scalable while not being constrained by number of IP addresses available.
+A service which initiates outbound connections but to the public you want those connections to originate from a specific and limited set of IP addresses that can be whitelisted.
 
 
-5. Configure Public & private Network
+Everything is deployed in an Amazon Virtual Private Cloud (VPC) which has two subnets:
 
+Public subnet: Has an attached internet gateway to allow resources launched in that subnet to accept connections from the internet, and initiate connections to the internet. Resources in this subnet have public IP addresses.
+Private subnet: For internal resources. Instances in this subnet have no direct internet access, and only have private IP addresses that are internal to the VPC, not directly accessible by the public.
 

@@ -1,14 +1,28 @@
-codebuild
+******codebuild
 
 
 
-code deploy
+*****code deploy
 
 
-redshift
+*****redshift
 
 
 
-migration
+*****migration
+AWS Migration hub is a service used for migrating applications from on premise to AWS cloud. It provides visualisation and tracking of your entire migration program.
+
+When Used:
+Companies shifting from On premise model to Cloud computing model AWS Migration Hub provides full visibility, Metrics, progress reports to
+
+
+Phase 1: Requirement Gathering Assessing the total scope of migration
+Phase 2 : Proof of Concept and Sign off (Tools such as Cloud Craft, Lucid Chart could be used for Architecture diagrams)
+Phase 3: Development Environment Build Sign off 
+Phase 4: QA Environment Build & Sign off (usually done by a 3 rd Party) 
+Phase 5 : User Acceptance Environment Build and Sign off 
+Phase 6 : Prod Environment Build 
+Phase 7: Go Live month (Stop app in old environment and launch in new environment) (Also includes successful go live or rollback in case of failure)
+Data movement could be done using Amazon SnowBall
 
 

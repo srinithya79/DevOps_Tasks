@@ -1,8 +1,27 @@
-1. Route & Policy
+****1. Role & Policy
+Roles are for AWS services, Where we can assign permission of some AWS service to other Service.
+- Giving S3 permission to EC2 to access S3 Bucket Contents.
+- Policies are for users and groups, where we can assign permissions to u.
+- Giving permission to user to access the S3 buckets.
 
 
-2. access to another account
+******2. access to another account
+Permission to an IAM user
 
-3. Inline policy
+- Sign in to the AWS Management Console and open the IAM console at https://console.aws.amazon.com/iam/ .
+Choose Users in the navigation pane, choose the name of the user whose permissions you want to modify, and then choose the Permissions tab.
+
+- Choose Add permissions, and then choose Copy permissions from existing user.
 
 
+
+
+*****3. Inline policy
+
+An Inline Policy is an IAM policy which is actually embedded within the user, group, or role to which it applies. There is a strict 1:1 relationship between the entity and the policy.
+
+When you delete the user, group, or role in which the Inline policy is embedded, the policy will also be deleted.
+
+In most cases, AWS recommends using Managed Policies over Inline Policies.
+
+Inline Policies are useful when you want to be sure that the permissions in a policy are not inadvertently assigned to any other user, group, or role than the one for which they're intended (i.e. you are creating a policy that must only ever be attached to a single user, group, or role).
