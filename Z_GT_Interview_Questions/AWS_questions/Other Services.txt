@@ -1,11 +1,18 @@
 ******codebuild
+AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces software packages that are ready to deploy. With CodeBuild, you don't need to provision, manage, and scale your own build servers.
 
+
+CodeBuild downloads the source code into the build environment and then uses the build specification (buildspec), as defined in the build project or included directly in the source code. A buildspec is a collection of build commands and related settings, in YAML format, that CodeBuild uses to run a build.
 
 
 *****code deploy
 
+AWS CodeDeploy is a fully managed deployment service that automates software deployments to a variety of compute services such as Amazon EC2, AWS Fargate, AWS Lambda, and your on-premises servers. ... You can use AWS CodeDeploy to automate software deployments, eliminating the need for error-prone manual operations.
+
 
 *****redshift
+
+Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. ... This enables you to use your data to acquire new insights for your business and customers. The first step to create a data warehouse is to launch a set of nodes, called an Amazon Redshift cluster.
 
 
 

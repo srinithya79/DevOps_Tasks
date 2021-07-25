@@ -1,1 +1,6 @@
+https://cloudvikas.com/aws-cloudwatch-interview-questions
 
+https://www.wisdomjobs.com/e-university/aws-cloudwatch-interview-questions.html
+
+
+CloudWatch is a monitoring service for AWS cloud resources and the applications you run on AWS. You can use CloudWatch to collect and track metrics, collect and monitor log files, and set alarms. CloudWatch can monitor resources such as EC2 instances, DynamoDB tables, and RDS DB instances.
