@@ -75,7 +75,8 @@ RDS replica
 RDS usage in a project setup
 SNS usage in a project
 ELB Metrics 
-
+SSL certificate means for what & why we use it 
+security check
 
 
 

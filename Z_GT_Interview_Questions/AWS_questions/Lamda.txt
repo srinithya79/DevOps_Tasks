@@ -22,6 +22,12 @@ Ruby
 
 
 3. lambda purpose in your project
+In our project.... We have several dev instances running... Developers won't use those in weekends... 
+So we use lambda to stop those dev instances using tags on Friday evening 9 and will start at Monday morning 6....
+We use lambda function to do that.... 
+We will create a rule in cloud watch with target as the lambda function and give cron expression so that it will execute the lambda function on that particular time and stop and start those instances
+
+
 
 
 4. lambda max timeout
