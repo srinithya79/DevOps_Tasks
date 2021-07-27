@@ -79,7 +79,17 @@ SSL certificate means for what & why we use it
 security check
 
 
-
+--------navtech---------
+grep, chmod, read, write, tail -100f, head, vi editor
+container vs virtilazation
+jenkins plugins used in ur project
+jenkins cicd flow
+devops tools
+git branch 
+aws(IAM, S3, Route53, NAT gateway,
+ELB autoscaling connection)
+docker jenkins
+how you operate the server throughy local or desktopn or etc.., (putty answrr)
 
 
 

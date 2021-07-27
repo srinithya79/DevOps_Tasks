@@ -6,7 +6,7 @@
 2. Compute Optimized instances.
 3. Memory Optimized instances.
 4. Accelerated Computing instances.
-5. Storage Optimized instances
+5. Storage Optimized instances.
 
 
 ********2. Lost pem file

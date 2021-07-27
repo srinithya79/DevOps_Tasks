@@ -32,7 +32,8 @@ Ruby
 
 4. lambda max timeout
 15 minutes
-You can now configure your AWS Lambda functions to run up to 15 minutes per execution. Previously, the maximum execution time (timeout) for a Lambda function was 5 minutes.
+You can now configure your AWS Lambda functions to run up to 15 minutes per execution. 
+Previously, the maximum execution time (timeout) for a Lambda function was 5 minutes.
 
 
 

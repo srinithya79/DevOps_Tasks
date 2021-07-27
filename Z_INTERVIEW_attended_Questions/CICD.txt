@@ -1,0 +1,14 @@
+----------Jenkins CICD Implementation------------
+
+1. developers push the source code, unit test cases to Github
+2. GitHub pull the code 
+3. Maven build it 
+4. Execute Sonarcube Report
+5. Upload it to Artifactory nexus
+6. Deploy the build to apache tomcat
+7. send an email notification to developers 
+
+
+
+----------Jenkins Docker Integration---------------
+1. 
