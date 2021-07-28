@@ -93,7 +93,30 @@ jenkins vs maven
 
 
 
+-------LnT Sumanth-----
+Ansible
+Register
+Lineinfile
+Jinja
+How to run playback in localhost
+Structure of roles
+Adhoc commands vs playbooks
+Debug module
 
+Docker
+Volume vs bind mount
+Docker run vs cmd
+Cmd vs entry points and how to pass multiple entry points in cmd
+Docker architecture
+Docker protocol
+Docker network concepts and explanation
+Which filesystem docker uses
+
+Linux
+Init.d and system.d difference
+How to start multiple services at a time
+Socket
+Tunnel
 
 
 
