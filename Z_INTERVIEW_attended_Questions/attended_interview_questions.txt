@@ -117,9 +117,19 @@ Init.d and system.d difference
 How to start multiple services at a time
 Socket
 Tunnel
+sticky bit
 
 
 
+------interview screening------
+terraform 
+
+Ansible 
+idem potent
+playbook vs roles
+encrypted files 
+
+linux cpu memory 
 
 
 

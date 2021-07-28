@@ -1,0 +1,206 @@
+*************Launching EC2 instance*****************
+step1: select AMI Linux
+step2: Instance type - t2.medium
+step3: skip
+step4: skip
+step5: Name - Jenkins
+step6: selected an existing security group , all tcp port 0-65535
+step7: review n launch 
+
+selected ppk file and launch the instances
+
+
+**************GitHub*************
+open github and copy the link
+
+https://github.com/damodaranj/my-app
+
+*************EC2****************
+open putty and login with the jenkins instance
+
+sudo su -
+yum install git -y 
+
+install jenkins redhat
+----------------------
+https://wiki.jenkins.io/display/JENKINS//Installing+Jenkins+on+Red+Hat+distributions
+
+Installation of LTS version
+----------------------------
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import http://pkg.jenkins.io/redhat-stable/jenkins.io.key
+sudo yum install jenkins
+
+Installation of Java
+--------------------
+sudo yum install java
+
+---------------
+sudo service jenkins start
+chkconfig jenkins on
+
+-----------
+copy the ec2 public ip address add :8080 jenkins will open
+
+cat /var/lib/jenkins/secrets/initialAdminPassword
+
+**********Jenkins**********
+
+click on Install suggested plugins
+
+---------
+yum install docker -y
+service docker start 
+
+open the link and click on 3.6.3
+https://mirrors.estointernet.in/apache/maven/maven-3/
+https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/
+
+cd /opt 
+wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+
+ls -ltr
+tar -xvf apache-maven-3.6.3-bin.tar.gz
+ls -ltr
+cd /opt
+ls -ltr
+cd apache-maven-3.6.3/
+ls -ltr
+
+
+go to github and see src folder, then look into dockerfile, jenkins file, pom.xml
+pom - project object model
+
+
+**********Jenkins**********
+Create Admin User and go to jenkins homepage
+- click on manage jenkins
+  click on Manage Plugins
+  click on Availabe tab and search for maven 
+  select maven integration and click on install without restart
+  
+- take the code from jenkinsfile
+
+node{
+   stage('SCM Checkout'){
+     git 'https://github.com/damodaranj/my-app.git'
+   }
+   stage('Compile-Package'){
+
+      def mvnHome =  tool name: 'maven3', type: 'maven'   
+      sh "${mvnHome}/bin/mvn clean package"
+	  sh 'mv target/myweb*.war target/newapp.war'
+   }
+}
+- Click on manage jenkins
+  click on Global Tool Configuration
+  Click on Mavne Installation -> Add Maven and uncheck the install automatically
+  give name as maven3
+  
+
+cd /opt
+ls-ltr
+cd apache-maven-3.6.3/
+pwd
+
+  copy the pwd path and paste it on MavenHome
+  save it
+
+cd bin/
+ls -ltr
+
+- Copy the code and click on new item
+  Enter item name - myproject 
+  click on Pipeline
+  go to pipeline tab
+  paste the code from jenkins file as groovy sandbox and save it
+  it will navigate to pipeline myproject page
+  click on build now
+  and check the build history 
+  it will display the pipeline stage view
+  check the console ouput
+
+- take the code from jenkinsfile
+
+  stage('Docker Image Push'){
+   withCredentials([string(credentialsId: 'dockerPass', variable: 'dockerPassword')]) {
+   sh "docker login -u saidamo -p ${dockerPassword}"  ------> give your dockerhub crenditials
+    }
+   sh 'docker push saidamo/myweb:0.0.2'
+   }
+
+   stage('Docker deployment'){
+   sh 'docker run -d -p 8090:8080 --name tomcattest saidamo/myweb:0.0.2' 
+   }
+
+  - Add the cod to pipeline and click on build now then it will display the stage view
+
+docker commands
+---------------
+docker image build
+docker build -t <imagename> .
+how to push docker image to dockerhub
+
+1. Login
+docker login -u <username> 
+docker push <imagename>
+
+
+sudo su -
+chmod 777 /var/run/docker.sock
+
+
+error - could not find crenditals entry with ID 'dockerpass'
+
+- Go to dashboard, click on manage jenkins
+  click on Manage crenditals
+  click on store and click on global crend..
+  add crenditals and save (select secret text as username and fill otherdetails n save)
+  
+
+open duplicate session (putty)
+sudo su -
+cd /var/lib/jenkins/workspace
+ls -ltr
+cd myproject
+ls -ltr
+
+
+-  copy the ipaddress from ec2 instance and add :8090/newapp/ - it should work 
+
+
+
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
