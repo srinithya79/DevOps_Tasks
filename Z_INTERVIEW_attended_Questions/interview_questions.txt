@@ -89,7 +89,7 @@ git branch
 aws(IAM, S3, Route53, NAT gateway,
 ELB autoscaling connection)
 docker jenkins
-how you operate the server throughy local or desktopn or etc.., (putty answrr)
+jenkins vs maven
 
 
 

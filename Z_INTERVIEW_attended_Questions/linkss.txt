@@ -1,0 +1,2 @@
+AWS Create NAT Gateway for Private Subnet Internet Access|Connect to EC2 Instances in Private Subnet
+https://www.youtube.com/watch?v=3L2moOZy3Yw

@@ -1,0 +1,197 @@
+INTERVIEW QUESTIONS IN ACCENTURE 1ST ROUND TELEPHONIC
+1. Current roles & responsibilities?
+2. What is Docker compose?
+3. What is Docker server version?
+4. What are the advantages of Docker?
+5. How do you setup Docker in Jenkins in production environment?
+6. How do create Docker image from Docker file?
+7. How do you deploy the Docker image generated in the testing environment to production environment in Jenkins?
+8. What is Docker data centre?
+9. What is Docker hub & uses?
+10. What are the types of Docker networks?
+11. How do you define network in the Docker compose file?
+12. What are the basic parameters required in the Docker compose file?
+13. What is Docker interlock?
+14. What is overlay networking?
+15. How to communicate between 2 containers present in separate network?
+16. How to store the data present in the Docker container in the AWS?
+17. If we define the Docker volume in the docker compose file is it possible to share data with the EFS, NFS?
+18. RexRay, Flocker Tools?
+19. Jenkins /Hudson?
+20. What is kibana?
+21. How to pull the logs from Docker container to the ELK? And describe the process?
+********************************************************************************
+
+
+
+SCREENING TEST & TELEPHONIC AxiadIDS
+
+1. How will you identify which one is public subnet & private subnet in VPC
+2. What is cloud formation?
+3. Is Amazon EBS storage is NAC/SAN storage?
+4. What are services available to connect your premise data centre to AWS cloud?
+5. Is S3 similar to Ext2 or Ext3
+6. ARP?
+7. What is SSL?
+8. What is GRUB?
+9. What is Maven& where it is used?
+10. Which is major file maven required?
+11. What is strace command in Linux and its uses?
+12. What is Docker file?
+13. What is CA (certificate Authority)?
+14. Inode?
+15. What is Chef?
+16. What is diff between chef apply, chef client, chef solo?
+17. What is ohai?
+18. What will happen if we do not specify any resources?
+19. Can AWS EC2 access s3 bucket without access key?
+20. What is the difference between CMD & Entry points?
+21. I want deploy containers but have storage persisents problems in AWS and in Docker?
+22. How do you solve the issue?
+23. Do you know how SSL works?
+24. Have you heard of certificate Authority?
+25. I have an issue which is found by nagios monitoring i.e. one process is sending a lot of high out band how do you find the process which is doing & solve the issue?
+26. What is tcp? Explain the process and steps in it?
+27. Where are dns details stored?
+28. Curl google.com is executed Explain the process & steps performed?
+29. In Chef it we want to create file if only it does not exists then how will you write/describe it?
+30. Does the etc/resolve file contain?
+31. DNS works on TCP/UDC? IMI Mobiles
+32. Brief me about yourself?
+33. Roles & Responsibilities / Daily Activities?
+34. What is Chef Client?
+35. Where are your cookbooks stored in chef server?
+36. Where do you have details about chef server in chef client?
+37. What are the tools you are using in your company & uses?
+38. What are services you’re monitoring in nagios?
+39. How to gracefully shutdown Tomcat?
+40. Do you have Ruby and scripting knowledge?
+41. What is Docker used for?
+42. How are you using AWS in your project/company?
+43. What is httpd/Apache and diff from Application server?
+44. What is nginx? What are the configurations that can be done in nginx, what its uses?
+45. Do you write sql queries in MySQL in your job?
+46. Do you perform documentation for the installation process?
+47. How do you override in chef (attributes)?
+48. How do you get the code for building applications?
+49. Does nginx support SSL?
+********************************************************************************
+
+
+
+EASYWAY TECHNOLOGIES INTERVIEW QUESTIONS
+1. Brief me about yourself?
+2. What are the daily activities?
+3. Why Chef?
+4. Tomcat Heap size/memory issue resolving?
+5. What are the fields in resolving above issue?
+6. What is the max Ram size needed to solve any JAVA memory issues in Tomcat?
+7. Explain about your Jenkins work flow?
+8. How you are creating/launching EC2 instances?
+9. What are IAM roles?
+10. Difference between IAM Roles & Policies?
+11. What is VPC?
+12. What is public subnet and pvt subnet?
+13. How we can access the servers in pvt subnet from outside world?
+14. How do you deploy Artifacts to application server using the Jenkins? With plug-in, Without plug-in
+15. How to communicate between two Docker containers which are in separate networks?
+16. How to build using maven Jenkins?
+17. What the ticketing tool?
+18. What is use of nexus?
+19. Docker version?
+20. Why not kubernetes and why swarm?
+21. How do configure Web logic?
+********************************************************************************
+
+
+
+Interview Question (Thomson Reuters) 
+All the questions based on My Company AWS Architecture through class board discussion
+
+1. Describe your AWS Architecture in your company?
+2. What is RDS what is the work you have done in RDS?
+3. What is cloud formation?
+4. What is CDN?
+5. I have pdf files in an instance and they are eating away the space. I need these files, what is solution do you provide for accessing these files?
+6. What is route 53? How do you configure it? And link it to ELB?
+7. What are private subnets? What is it needs?
+8. What is the need for having your application or instances in private subnets when you have public domain through route 53?
+9. What is ELB? How do you configure and its needs?
+10. What is the monitoring tools and types of services your monitoring?
+11. What are the issues you’re facing in your job or daily activities and do you troubleshoot them?
+12. How do you configure kibana? What can you do in it?
+13. How do you pull the logs from the system to your ELK?
+14. How do you configure ELK?
+15. Is it necessary to have logstash? Cannot we do the work without logstash only using the elastic search?
+16. Do you know about nodejs?
+17. What is Rest APIS? PUT,POST
+18. What are micro services? In general what are services?
+19. What are the tools you are using in continuous integration/CD?
+20. How are EC2 instances created in your architecture?
+21. Do you have any idea about local servers?
+22. How do you use nginx in your project?
+23. How do you setup your physical environments?
+24. What is the ticketing tool ur using?
+25. What are the instances type’s u rs using in Ur aws architecture?
+
+1. Cloudbees Jenkins(I was explaining about Jenkins)
+2. Elaborate Test Kitchen Concept and Kitchen.yaml
+Once i said about that i Configure Vagrant in the Yaml file he asked me to elaborate on
+Vagrant He asked me where else you use Vagrant.(i was not able to tell him anything other than test kitchen) is there anything more than what we had discussed in tha TestKitchen?
+3.What kind of recipies you have written in Chef?
+4. Groovy Scripts(I have no Idea at all)
+5. Devops toolchain( i was answering about the tools we learnt GIT, MAVEN, CHEF, JENKINS, DOCKER is it correct sir?
+6. Differences between ANT and MAVEN ?
+7 differences from SVN and Accurev
+8. Some were asking how many environments you have?
+9 In Maven they asked something how many builds will you be sending to Production team in the project and how often? Also he gave me a scenario like he wants to hide some part of the code from the production team he was asking what mechanism will you be using to achieve that?
+10. Also many are interested in Micro Services development is it possible for us to have some elaborated sessions on them?
+********************************************************************************
+
+Accenture
+1.Tell me about yourself and work experience, what is the role performing at your organization?
+2.why your are using Jenkins?
+3.Are you using Docker & which purpose you are using docker in your organization
+4.What is load balancing in docker?
+5.How you up multiple applications at a time docker?
+6.What are components in a docker file?
+7.Elaborate some commands to create a docker file
+8.How you automate docker process by using jenkins
+9.What is kubernates
+10.If i give a scenario in a docker are you willing to do ?
+********************************************************************************
+
+
+1.How do you achieve fault tolerance in jenkins
+2.how to write git repo path in jenkins
+3.how can you monitor remote systems.
+4.what are the ports you need to open for nagios
+5.what is the diff b/w active check and passive check
+6.Types of server status in nagios
+7.What are the nagios conf files
+8.Path for nagios plugins
+9.what kind of data you can recive from nagios client
+10.how do you authenticate node with chef server
+11.what will happen when you bootstraping
+12.where do you use vagrant in your organization
+13.which version are you using nagios
+14.how can you take backup files in your organization(automate/manual)
+15.what is the conf file for mysql
+16.Default port number for mysql
+17.what are the cookbooks you are written so far.
+18.Where do you update cookbook version in chef.
+19.where is your chef server located
+20.diff b/w chef-solo and chef-server
+********************************************************************************
+
+MindTree Questions
+1.What is DevOps
+2.What is the need of chef
+3.What is cookbook and what contains
+4.What is templates?
+5.What is providers
+6.Libraries usage
+7.How to call a library in a recipe
+8.Purpose of role
+9.Purpose of environment.
+********************************************************************************
