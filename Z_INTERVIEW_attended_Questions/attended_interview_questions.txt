@@ -132,6 +132,25 @@ encrypted files
 linux cpu memory 
 
 
+--------Madhurai Company--------------
+What is handlers in ansible?
+What is docker Swarm ?
+CI & CD flow ?
+What is continuous deployment & Continuous delivery?
+How to edit git Repository file?
+Chef and puppet ?
+Infrastructure as a code ? Why ? 
+SSH  & SCL ?
+How will you do Continuous test? 
+Yaml Script ?
+More questions from plugins ? 
+Some Ad-hoc commands ?
+Unknown question from R53 ?
+Types of continuous integration? Why?
+
+
+
+
 
 
 

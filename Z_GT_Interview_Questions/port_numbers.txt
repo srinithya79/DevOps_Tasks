@@ -1,0 +1,17 @@
+default port number 
+
+mysql - 3306
+oracle - 1521
+jenkins - 8080
+tomcat - 8080
+ssh - 22
+rdp - 3389
+dns - 53
+SonarQube uses port 9000.
+
+Nexus - port 8081
+By default, the repository manager listens on port 8081. You can change this port, by changing the value in the $NEXUS_HOME/conf/nexus.
+
+
+
+

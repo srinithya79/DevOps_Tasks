@@ -170,6 +170,372 @@ ls -ltr
 
 
 
+day 2:
+------
+
+*************Sonarqube**************
+
+https://www.sonarqube.org/
+
+Sonarqube - all developers to write cleaner and safer code.
+27 langugaes supports sonarqube
+
+pre-requisites for sonarqube:
+-----------------------------
+- need 4 gb ram machine 
+- test data will be stored in db, so need database (aws rds --mysql)
+- need java openjdk
+- need to create user, schema, acesss --- db info
+- should not start it with root user
+
+
+
+************Ec2************
+create ec2 instance with the name sonarqube and t2.medium 
+
+**********RDS***********
+creating RDS 
+
+click on Database side menu 
+click on create datbase 
+---> select engine (mysql)
+check the eligible for RDS Free Usage Tier 
+---->Specify db details (MySql - 5.7.26)
+ settings (mysonar, admin, admin123)
+----> Configure advanced settings
+vpc security group (choose existing security group -- openall )
+dataoptions (mysonar, 
+uncheck enable deletion protection -- create database
+
+
+click on view db instances
+
+
+
+***********Ec2 sonarqube server***********
+ec2-user
+sudo su -
+yum install java-1.8.0 (latest version 1.8.0)
+
+
+---> accessing connected database with endpoint 
+
+yum install mysql -y
+mysql -h <endpoint_link> -P 3306 -u <username-admin> -p 
+EnterPwd : admin123
+
+now creating mysql database in ec2 server reference sonarqube document
+
+- CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8_general_ci;
+- CREATE USER sonar@localhost IDENTIFIED BY 'sonar';
+- CREATE USER sonar@'%' IDENTIFIED BY 'sonar';
+- GRANT ALL ON sonar.* TO sonar@localhost;
+- GRANT ALL ON sonar.* TO sonar@'%';
+
+----> created db , local n remote user, permissionsto user----
+
+exit
+
+
+cd /opt/
+ls -ltr
+
+Gonna download sonarqube with the below cmnds in opt folder path
+
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-6.7.6.zip
+ls -ltr
+unzip sonarqube-6.7.6.zip
+ls -ltr
+cd sonarqube-6.7.6/
+cd conf/
+ls -ltr
+in conf folder there will be 2 files
+
+---- 2 important files of sonarqube is "wrapper.conf and sonar.properties"-----
+
+open and edit sonar.properties file
+
+vi sonar.properties
+  - In database uncomment the 2 lines "sonar.jdbc.username & sonar.jdbc.password"
+  - give the db username n password
+  - uncomment the mysql line and replace localhost with rds endpoint link
+  - uncomment the sonar.web.host=0.0.0.0
+  - uncomment sonar.web.context=/sonar
+  - uncomment sonar.web.port = 9000
+  - :wq
+
+vi wrapper.conf
+  - add the java specify path
+Java path  /usr/lib/jvm/java-1.8.0.282.b08-1.amzn2.0.1.x86_64/jre/bin
+
+---java path----
+ - cd /usr/lib/jvm/java-1.8.0.282.b08-1.amzn2.0.1.x86_64/jre/bin
+ls -ltr
+pwd
+---------
+
+
+cd /opt/sonarqube-6.7.6/conf/
+ls -ltr
+
+vi wrapper.conf
+add the path in wrapper.java.command=/usr/lib/jvm/java-1.8.0.282.b08-1.amzn2.0.1.x86_64/jre/bin
+:wq
+
+
+ -----should not start it with root user -- "elastic search" component wont allow the sonarqube to start in root user
+
+we have to change the permission 
+
+cd /opt/sonarqube-6.7.6/bin/
+ls -ltr
+cd linux-x86-64
+ls -ltr
+
+permission changing with the below command:
+chown -R ec2-user:ec2-user /opt/sonarqube-6.7.6
+exit
+
+exit from root user
+
+cd /opt/sonarqube-6.7.6/bin/linux-x86-64/
+ls -ltr
+./sonar.sh start
+
+
+-----sonarqube access from instance ipaddress----------
+ip:9000/sonar
+
+- Login to sonarqube
+- Provide a token name(sonar) & generate
+- have to note the token
+- through that token jenkins will access the sonarqube
+
+Now integrating jenkins & sonarqube
+-----------------------------------
+
+login to jenkins
+click on Manage Jenkins ---> click on Manage plugins ---> Available (search in sonar)
+click on SonarQube Scanner ---> install withoit restart
+click on manage plugins --> manage crenditals ---> jenkins ---> global crenditials ---> add crenditials
+secret test, secret key add, id - sonar, description -sonartoken
+
+
+click on build history
+add 2 stages in pipeline tab
+
+node{
+   stage('SCM Checkout'){
+     git 'https://github.com/damodaranj/my-app.git'
+   }
+   stage('Compile-Package'){
+
+      def mvnHome =  tool name: 'maven3', type: 'maven'   
+      sh "${mvnHome}/bin/mvn clean package"
+	  sh 'mv target/myweb*.war target/newapp.war'
+   }
+   stage('SonarQube Analysis') {
+	        def mvnHome =  tool name: 'maven3', type: 'maven'
+	        withSonarQubeEnv('sonar') { 
+	          sh "${mvnHome}/bin/mvn sonar:sonar"
+	        }
+	    }
+   stage('Build Docker Imager'){
+   sh 'docker build -t saidamo/myweb:0.0.2 .'
+   }
+   stage('Docker Image Push'){
+   withCredentials([string(credentialsId: 'dockerPass', variable: 'dockerPassword')]) {
+   sh "docker login -u saidamo -p ${dockerPassword}"
+    }
+   sh 'docker push saidamo/myweb:0.0.2'
+   }
+   stage('Remove Previous Container'){
+	try{
+		sh 'docker rm -f tomcattest'
+	}catch(error){
+		//  do nothing if there is an exception
+	}
+   stage('Docker deployment'){
+   sh 'docker run -d -p 8090:8080 --name tomcattest saidamo/myweb:0.0.2' 
+   }
+}
+}
+
+
+----- save the code
+
+manage jenkins --> cofigure system --> search for sonar ctrl+F and add sonar name, server url, authentication token, 
+
+and click on build now
+
+stage view looks like ---> SCM Checkout, Compile package, SonarQube Analysis, Build Docker Image, Docker Image push, remove previous container, docker deployment
+
+
+go and check the sonarqube site (Server)
+
+Quality gates -- devlopers will work on it
+-------------------------------------------------------
+for all plugins -- plugins.jenkins.io/docker-plugin/
+------------------------------------------------------
+
+
+***********NEXUS Artifactory*****************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
   
