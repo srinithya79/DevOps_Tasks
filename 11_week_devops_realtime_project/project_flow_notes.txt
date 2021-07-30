@@ -379,7 +379,270 @@ for all plugins -- plugins.jenkins.io/docker-plugin/
 ------------------------------------------------------
 
 
-***********NEXUS Artifactory*****************
+***********NEXUS Artifactory*****************it stores the private docker image in to the server
+there are 2 artifactory tools 
+1. Nexus 2. Jfrog
+
+pre-reqisites
+-------------
+4gb ram
+java
+
+****Launch EC2 instance with the name of Nexus****
+
+ec2-user
+sudo su -
+yum install java-1.8.0
+
+
+https://help.sonatype.com/repomanager3/download
+go to nexus site and copy the unix link - https://help.sonatype.com/repomanager3/download
+
+cd /opt/
+wget https://help.sonatype.com/repomanager3/download
+ls -ltr
+tar -xvf latest-unix.tar.gz
+ls -ltr
+
+----------
+search in google as -- nexus artifactory to store containers
+https://blog.sonatype.com/using-nexus-3-as-your-repository-part-3-docker-images
+-----------
+
+cd nexus-3.32.0-03/
+ls -ltr
+cd bin/
+./nexus start
+./nexus status
+
+copy the nexus public ip
+<ip>:8081
+
+pwd
+copy the path 
+
+**********Nexus*********
+signin
+give username 
+to know the password have to go the mentioned path in the webscreen  -- /opt/sonatype-work/nexus3/admin.password
+
+open duplicate session or go to root
+cat /opt/sonatype-work/nexus3/admin.password
+set new password
+
+pop will come as "Configure Anonymous Access"
+click on enable but in real time we use disable.
+
+click on settings --> click on repositories 
+click on create repository and select docker(hosted)
+  give name as docker private
+  http : 8083 (it's private artifactory port number)
+  check the enable docker v1 API (if we didnt enable means we cant able to access it to client or ec2 machine)
+  click on create repository
+
+
+come back to root
+install docker 
+yum install docker -y
+create a file  vi /etc/docker/daemon.json
+
+https://qiita.com/leechungkyu/items/86cad0396cf95b3b6973  -- copy the code and paste it in vi editor
+
+{
+        "insecure-registries" : ["182.252.133.70:5000"]
+}
+
+:wq
+
+have to restart the docker daemon
+
+systemctl restart docker
+
+---containers will run on jenkins---
+
+********open jenkins ec2 machine******** from jenkins we are going to push the docker
+sudo su -
+create a file  vi /etc/docker/daemon.json
+{
+        "insecure-registries" : ["182.252.133.70:5000"]  -- have to give nexus ip
+}
+
+service docker restart
+cat /etc/docker/daemon.json
+
+copy the full jenkins file from github
+
+
+go to jenkins
+click on configure
+click on pipeline tab and paste the code
+save
+
+click on build now
+
+--------------------
+
+go and check the nexus site can able to see the files 
+
+
+************prometheus**************Monitoring tool
+now we are going do prometheus container to be run in docker container
+---------------------------------------------------------------
+docker run -it -d --name prom -v /etc/prometheus:/etc/prometheus -p 9090:9090 prom/prometheus 
+To run advisor container in tomcat machine
+docker run -d --name cadvisor -p 8081:8080 -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys:ro -v /var/lib/docker/:/var/lib/docker:ro google/cadvisor
+----------------------------------------------------------------------
+
+running the prometheus in nexus machine above commands
+
+---
+
+sudo su -
+Installing prometheus
+docker run -it -d --name prom -v /etc/prometheus:/etc/prometheus -p 9090:9090 prom/prometheus
+
+docker ps
+docker ps -a
+docker logs containerid
+error came
+
+cd /etc/prometheus/
+ls -ltr
+
+https://docs.docker.com/config/thirdparty/prometheus/  --- copy the prometheus config file
+
+vi prometheus.yml
+:wq
+
+docker start containerid
+docker ps   - prometheus up port 9090
+
+nexus machine
+ip:9090 in google
+
+prometheus page will display
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

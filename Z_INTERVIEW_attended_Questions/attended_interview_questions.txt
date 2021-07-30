@@ -149,6 +149,29 @@ Unknown question from R53 ?
 Types of continuous integration? Why?
 
 
+------Data Aces Tambaram------------
+instance store/EBS volume ?
+S3 bucket policy
+IAM role & Policy
+Docker multistage file
+docker files for ngnix
+entry point vs cmd
+IAM flow how u give permissions
+what is ansible adhoch commands
+git cheerypic
+jenkins scenario maven endho adigadu
+how to run particular playbook
+idem potent
+--linux commands---
+how to add user
+
+
+
+
+
+
+
+
 
 
 
