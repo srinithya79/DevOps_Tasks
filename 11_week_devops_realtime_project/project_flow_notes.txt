@@ -522,6 +522,128 @@ ip:9090 in google
 
 prometheus page will display
 
+----notes---
+
+1. binaries install
+2. docker container
+
+
+***need some agent for prometheus to send the data**(to know about the conatiner information we are using agents) 
+1. node exporter
+2. alert manager
+3. cadvisor  -- container advisor
+MONITORING DOCKER CONTAINER METRICS USING CADVISOR
+
+https://prometheus.io/docs/guides/cadvisor/
+
+cAdvisor (short for container Advisor) analyzes and exposes resource usage and performance data from running containers. cAdvisor exposes Prometheus metrics out of the box. In this guide, we will:
+
+create a local multi-container Docker Compose installation that includes containers running Prometheus, cAdvisor, and a Redis server, respectively
+examine some container metrics produced by the Redis container, collected by cAdvisor, and scraped by Prometheus
+
+------------------------
+
+******Need to install cadvisor in jenkins machine (beacuse docker will run in this machine)*****
+sudo su -
+docker ps
+docker run -d --name cadvisor -p 8081:8080 -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys:ro -v /var/lib/docker/:/var/lib/docker:ro google/cadvisor
+
+running cadvisor by using the above command
+
+docker ps
+--it will display cadvisor containerid
+
+copy the <machine id>:8081  -- it will display the cadvisor page
+
+--cadvisor is a metrics
+
+copy the cadvisor ip address and going to prometheus machinee which is in nexus
+
+******nexus machine*****
+
+sudo su -
+cd /etc/prometheus/
+ls -ltr
+vi prometheus.yml
+
+in that file 
+
+on static_configs:
+	- target: [ paste the ip address:8081]  -- cadvisor ip & port number
+
+docker ps
+docker restart containerid 
+docker ps
+
+-------
+
+now go to prometheus site
+
+can enter the query for ex cpu usage and v can able to c the chart
+
+promethesus disadvantage:
+not user friendly
+for dashboard they will use grafana
+
+https://grafana.com/grafana/dashboards
+
+*******GIT JENKINS INTEGRATION STEPS***********
+go the repository in github
+go to settings use webhook mechanisam
+click on add webhook and gice jenkins urls that means ip
+click add webhook at last
+
+
+----go to configure in jenkins
+check on github project
+give github url
+
+check on github hook trigger for GIThubScm polling
+
+upa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
