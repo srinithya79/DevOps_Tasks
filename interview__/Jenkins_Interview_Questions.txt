@@ -19,7 +19,22 @@ Continuous integration is a process in which all development work is integrated 
 
 6. What are the pre-requisites for using Jenkins
 
-7. How can you move or copy Jenkins from one server to another server
+-----------------7. How can you move or copy Jenkins from one server to another server----------------------------
+
+Move a job from one installation of Jenkins to another by simply copying the corresponding job directory.
+Make a copy of an existing job by making a clone of a job directory by a different name.
+Rename an existing job by renaming a directory. Note that if you change a job name you will need to change any other job that tries to call the renamed job.
+
+or
+
+1. Copy all the files in your JENKINS_HOME directory over to the new server.
+2. Point JENKINS_HOME on the new server at the new directory.
+3. Copy the Jenkins war file (or your servlet container setup if you have one) over to the new machine and start it up.
+
+All Jenkins settings, jobs, plugins, config, etc. live in JENKINS_HOME.
+You just need a copy of it to start it elsewhere.
+
+-------------------------------------------------------------------------------------------------------------------
 
 
 8. Commands to use to start Jenkins manually
@@ -30,7 +45,16 @@ Continuous integration is a process in which all development work is integrated 
 
 11. What are the two components that Jenkins mainly integrate with?
 
-12. What is the default session timeout value in Jenkins and How can you increase the session timeout value?
+----------------12. What is the default session timeout value in Jenkins and How can you increase the session timeout value?-----------------------
+Jenkins uses Jetty, and Jetty's default timeout is 30 minutes.
+
+You can change the timeout time in Jenkins. For that you need to override the timeout by passing an argument --sessionTimeout=<minutes> to the Jenkins init script, or -DsessionTimeout=<minutes> to the .war file as shown below.
+
+# Set the session timeout to 1 week
+$ java -jar jenkins.war --sessionTimeout=10080
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
 
 
 13. Explain about Jenkins security mechanism
