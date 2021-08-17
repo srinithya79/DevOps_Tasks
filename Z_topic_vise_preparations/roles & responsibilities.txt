@@ -1,0 +1,101 @@
+The typical DevOps workflow is as follows:
+Atlassian Jira for writing requirements and tracking tasks.
+Based on the Jira tasks, developers checking code into GIT version control system.
+The code checked into GIT is built by using Apache Maven.
+The build process is automated with Jenkins.
+During the build process, automated tests run to validate the code checked in by a
+developer.
+Code built on Jenkins is sent to organization’s Artifactory.
+Jenkins automatically picks the libraries from Artifactory and deploys it to Production.
+During Production deployment, Docker images are used to deploy same code on
+multiple hosts.
+Once a code is deployed to Production, we use monitoring tools like ngios are
+used to check the health of production servers.
+Splunk based alerts inform the admins of any issues or exceptions in production.
+
+
+1. Software Installation
+2. Infra setup
+3. Server Maintains
+4. Application Support
+5. Version Control Support
+6. Build and release
+7. Automation
+8. VA/PT
+9. Documentation
+10. Support Cross Functions Team
+11. Research and Deploy New Tools
+12. Resource Enablement
+
+****1. Software Installation
+primarily will be installing the softwares
+
+****2. Infra setup
+If new servers are coming up in ur applications has to be deployed in ur environment,  devops has responsible for managing the setup
+
+****3. Server Maintains
+If any server goes down, we need to add on multiple resources like increasing number of cpu's, amount of RAM, like additional disks, association.
+
+****4. Application Support
+If any application stops working in SIT(System Integration Tests), it may be in dev servers, or sometime production as well, devops is responsible for provide that as well.
+
+****5. Version Control Support
+providing access to devlopers based on their requirements 
+that could be on specific branch 
+that could be on specific repository
+or like if any person wants to access on entire project so that is also possible that is what devops team manages
+
+
+****6. Build and release
+- first of all requirements comes to developer 
+- for requirement gathering we use confluence page
+- for tracking purpose we use JIRA because whenever requirement comes a ticket is created on JIRA and that is assigned to developer
+- developer works on multiple IDE's which can be vscode, eclipse, maven, gradle
+- once developer commits the code
+- 
+
+
+
+*****7. Automation
+
+
+****8. VA/PT Vulnerability Assessment and Penetration Testing
+weather your infrastructure is secure or not
+if it is secure then devops team helps operation team to produce this report 
+if there are some bugs, there are some patches to be deploy then devops team perform the activity
+
+****9. Documentation
+
+
+
+****10. Support Cross Functions Team
+DevOps team supports to developers while setting up IDE (Vscode, eclipse, maven, griddle)
+when they need access or any connectivity issues 
+
+
+****11. Research and Deploy New Tools
+
+
+
+****12. Resource Enablement
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+

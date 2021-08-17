@@ -1,0 +1,43 @@
+Maven Interview Questions
+--------------------------
+1. Explain Maven Build Lifecycle?
+2. What is convention over configuration. How does maven use it?
+3. What are the phases of Build Life cycle and Clean life cycle? What happens in each phase?
+4. Explain maven dependency
+5. When does maven use external dependency?
+6. What is Build profile and what are the different types of Build Profile?
+7. What are the different types of Maven Repositories? (or) they may ask difference between types of maven repositories
+8. what is the sequence in which maven search for dependencies?
+9. What is the difference between snapshot and version in maven?
+10. What is system dependency and transitive dependency in Maven?
+11. How profiles are specified in maven?
+12. Explain about all the dependency scopes in Maven
+
+GIT Interview Questions
+-------------------------
+1. What is the difference between GIT and SVN?
+2. Advantages of using GIT?
+3. What is STAGING area and INDEX in GIT?
+4. What is the difference between GIT PUSH and COMMIT? When they are used?
+5. What is GIT STASH?
+6. How do you create a branch in GIT?
+7. How do you merge code from branch to master in GIT?
+8. How do you confirm if GIT branch has merged into master?
+9. What is HEAD in GIT? How many HEADS you can create in GIT?
+10. What does "git config" do?
+11. Learn about all the commands in GIT. Interviewer may ask indirectly about how can u acheive one scenario. You should be able to tell him the command to use.
+12. What is the purpose of branching in GIT? What is the common branching pattern in GIT?
+13. How can u resolve conflict in GIT? Interviewer may also ask you to explain one scenario how you resolved conflicts in GIT in your current project.
+
+SVN Interview Questions
+------------------------
+1. Difference between GIT and SVN repository?
+2. What all things we can store in SVN repository?
+3. Difference between "svn import", "svn add" and "svn commit" ?
+4. What is the difference between "svn export", "svn checkout" ?
+5. What is the difference between "svn update and "svn commit" ?
+6. What is the command to see what is inside the svn repository?
+7. How can you revert to previous version in SVN?
+8. Best prctices of SVN
+9. How can u resolve conflict in SVN? Interviewer may also ask you to explain one scenario how you resolved conflicts in SVN in your current project. 
+10. How can see the difference between the local version and repository version of files in SVN?

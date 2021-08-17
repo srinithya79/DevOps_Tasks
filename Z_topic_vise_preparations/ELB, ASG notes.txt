@@ -1,0 +1,61 @@
+ELB - Elastic load balancer
+
+on multiple server "myapp" will run
+for elb - domain name(DNS) will be given automatically by AWS while creating the load balancer
+
+ASG - Auto Scaling Group (if threashold limit crossed means asg will create one new machine and after that it will terminate)
+cpu utilizaion crossed means automatically asg will create one machine
+user data loads over 
+
+
+we can create ELB in 4 methods
+Application Load Balancer - works according to path (microservice)  -- first need to bring register target first then only can able to create load balancer 
+Network Load balancer - works using protocol (microservice)  -- first need to bring register target first then only can able to create load balancer 
+Gateway Load balancer  				(microservice) -- first need to bring register target first then only can able to create load balancer 
+Classic Load balancer - works in round robin system (monolithic)  -- directly connect the ELB
+
+
+Application Engineering - 
+what is monolithic - single layer of architecture
+what is microservice - multi layer of architecture
+
+
+diff between internet & intranet
+internet - works globally
+intranet - works within the community (like within office environment)
+
+diff between template message & normal message
+template message - pre-defined message & it is reusable
+normal message - 
+
+userdata -- 
+
+Via auto sclaing - Launch configuration -- can create a template and it is reusable
+
+For create autoscaling/classic load balancer steps
+----------------------
+1. CLB
+2. select Template
+3. Attached template 
+4. set max and mini capacity
+
+*****ASG automatically creates and terminates the instance according to the traffic in instances****
+
+For ALB need 2 servers
+need to set target group for ALB
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

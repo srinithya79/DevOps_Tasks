@@ -1,0 +1,101 @@
+****disttributed vcs****
+
+
+***advantages of vcs***
+Provides flexibility
+all the versions easily available
+changes can be tracked easily
+provides backup
+
+
+***GIT vs SVN***
+Git is a decentralized version control tool
+Git belongs to 3rd generation version control tool
+clients can clone entire repositories on their local systems
+commits are possible even in offline
+push and pull operations are comparatively faster
+git works are shared automatically by commit command
+--------
+SVN is a centralized version control tool
+SVN belongs to 2nd generation version control tool
+version history is stored on the server side of the repository
+only online commits are allowed
+push and pull operations are comparatively slower
+SVN nothing is shared automatically
+
+
+****Git & GitHub****
+GitHub is an American Company that provides hosting software development version control using GIT.
+It offers all of the distributed version control and source code management functionality of GIT as well as adding its own features.
+
+
+****what is bare in git repository****
+
+
+***what is commit message****
+Command that is used to write a commit message is git commit -m "message"
+
+
+***git push origin master***
+sends changes to the master branch of your remote repository
+
+***how do u a fix a broken commit****
+we can use the command to fix the broken commit
+git commit --amend
+so when u run this command you can fix the broken commit message in the editor
+
+
+****what is a conflict in git****
+Git can handle on its own most merges by using its automatic merging features
+
+
+***How do you resolve a conflict in a Git***
+we have a few steps to resolve a conflict 
+- identify the files that have caused the conflict
+- make the necessary changes in the file so that the conflict does not arise again
+- we add this files by using the command
+git add
+- finally to commit the changed file use the command 
+git commit 
+
+
+******How do you revert a commit that has already been pushed and made public******
+git revert commitid
+
+
+******Git pull vs fetch*****
+
+Git pull - Git pull command pulls new changes or commits from a particular branch from your central repository and updates your traget branch in your local repository
+
+Git fetch - Git fetch is used for the same purpose but it works in a slightly different way when u perfrom a git fetch it pulls all new commits from the desired branch and stores it in a new branch in your local repository.
+
+if you want to refelect the changes in ur target branch git fetch must be followed with a git merge 
+
+
+***staging area***
+
+
+git statsh 
+
+git diff vs git status
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

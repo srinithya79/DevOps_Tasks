@@ -15,7 +15,6 @@ Accessing the EC2 instance even if you loose the pem file is rather easy.
 - Now stop the lost pem file instance. Remember not to terminate instance but to stop it.
 - Go to EBS volumes, select the root volume of the lost pem file instance and detach.
 - Now again select the detached volume and this time you have to attach this volume to helper instance which we created before. Since helper instance already has a root volume by default as /dev/sda1, the newly attached volume will be secondary(eg: /dev/sdf).
-
 - Login to your helper instance with its pem file.
 
 Execute below commands:

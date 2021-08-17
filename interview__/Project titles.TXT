@@ -1,0 +1,24 @@
+Project 1. Multi Tier Web Application Setup - Locally
+2. Automated Setup of Multi Tier App - Locally
+3. Web App Setup on AWS Cloud [Lift & Shift]
+4. Re-Architecturing Web App on AWS Cloud
+
+5. Continuous Integration Using Jenkins, Nexus, Sonarqube & Slack
+6. Continuous Integration on AWS Cloud
+7. Jenkins Pipeline As A Code Project
+8. Continuous Delivery of Java Web Application
+9. Continuous Delivery on AWS Cloud [Java Application]
+
+10. Ansible for AWS VPC
+11a. Ansible for Complete Stack Setup [SECOND PHASE]
+12. Ansible for Complete Stack Setup [THIRD PHASE]
+
+
+13. Continuous Delivery And Configuration Management [Jenkins plus Ansible]
+14. Hybrid Continuous Delivery [Cloud plus CI]
+15. Containerization of Java project
+16. Kubernetes Setup for productions
+17. Java App Deployment on Kubernetes Cluster
+18. Terraform Tutorials
+19. Terraform for Cloud State Management
+20 Cloudformation for Cloud Stack Setup
