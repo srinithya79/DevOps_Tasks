@@ -1,0 +1,39 @@
+1. Setup artifactory server
+
+2. Install 'Artifactory' plugin
+
+3. Manage Jenkins, configure system
+
+4. click Add artifactory server under Jfrog, serverID: ArtifactoryServer
+
+5. URL of artifactory servers (:8081/artifactory)
+
+6. Create a new user named Jenkins with admin previleges, password: jenkins123
+
+7. Create a new job in Jenkins
+
+8. Choose maven project, source code management, provide github repository
+
+9. Under Build, Goals and options: clean install
+
+10. Under post build actions, select deploy artifacts to artifactory
+
+11. Refresh repositories
+
+12. Apply and Save
+
+Another scenario: to pull binaries/dependencies from artifactory server rather than maven
+----------------
+Under Build Environment, select resolve artifacts from Artifactory and select remote repositories.
+
+local - snapshot-local
+release - snapshot -release
+
+
+
+
+
+
+
+
+
